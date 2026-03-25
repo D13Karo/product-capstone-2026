@@ -1,139 +1,182 @@
-# Team ICP Candidates
- 
-| | |
-|---|---|
-| **Team Name** | The Merge Conflicters |
-| **Course** | CS-PD-2026 |
-| **Prepared by** | Davit Karoiani, Mariam Pirtskhalava, Mariam Tskhomelidze, Levan Kovziridze |
-| **Date** | March 19, 2026 |
- 
+# Ideal Customer Profiles
+
+**Team Name:** The Merge Conflicters  
+**Date:** March 25, 2026  
+**Version:** v1.0 (pre-interview hypothesis)  
+
+> Both profiles below are hypotheses. They will be updated as you conduct interviews.  
+
 ---
- 
-## 🧑 Candidate ICP 1
- 
-> **Linked to problem:** LMS notifications unreliable — students miss updates and waste time
-> **Submitted by:** Mariam Pirtskhalava
- 
-### 1.1 Who Is This Person?
- 
-**Segment label:** KIU student managing multiple courses
- 
-**Demographics (relevant):**
-3rd–4th year university student at KIU, enrolled in 5–7 courses per semester, commuting from within the city.
- 
-**Psychographics (relevant):**
-Cares about academic performance and staying organized, but feels overwhelmed by multiple responsibilities. Values efficiency and dislikes wasting time. Gets stressed when missing deadlines or important updates.
- 
+
+## Primary ICP: LMS notifications unreliable — students miss updates
+
+### 1. Segment
+
+**Who is this person?**  
+Third- or fourth-year KIU student enrolled in 5–7 courses per semester, commuting within the city. They care about staying organized and performing well but often feel stressed and overwhelmed.  
+
+**Test:** Could you identify someone like this in a classroom or library within 10 minutes? Yes — look for busy students checking multiple course platforms.  
+
 ---
- 
-### 1.2 Their Context
- 
-| | |
-|---|---|
-| **Where** | On LMS platforms and course pages, usually at home or while commuting, checking updates manually |
-| **When** | During the academic semester, especially before deadlines or when schedule changes happen unexpectedly |
-| **How often** | Multiple times per week |
- 
+
+### 2. Context
+
+**When and where does the problem occur?**  
+During the academic semester, especially before deadlines or when schedules change. Usually at home, in dorms, or while commuting, when they check course updates.  
+
+**Test:** This is specific enough to design interview questions around daily LMS use and missed updates.  
+
 ---
- 
-### 1.3 Their Current Workaround
- 
-**What they do today:**
-Manually check each course page multiple times per day, rely on classmates or Messenger groups for updates.
- 
-**Why it's inadequate:**
-It wastes time, is unreliable, and still results in missed updates or unnecessary commuting. It also increases stress and reduces productivity.
- 
+
+### 3. Primary Pain
+
+Students waste time manually checking LMS platforms and still miss updates, causing stress, unnecessary commuting, and lower efficiency.  
+
+**Test:** Students reading this should say, “Yes, that’s exactly what happens to me.”  
+
 ---
- 
-### 1.4 Why This Segment
- 
-This segment experiences the problem frequently and with high impact. Missing academic updates directly affects their performance, time, and stress levels. They are highly motivated to adopt a better solution because it directly improves their daily routine. They are also easy to reach through university networks.
- 
-**What would need to be true for this to be a strong ICP?**
-We need to confirm how often students actually miss updates and whether they would actively use a centralized notification system instead of existing habits.
- 
+
+### 4. Current Workaround
+
+- Manually check each course page multiple times per day.  
+- Rely on classmates or Messenger groups for updates.  
+
+**Why it’s inadequate:** Still unreliable and stressful. Missed updates affect performance and daily planning.  
+
 ---
- 
-### 1.5 Confidence Assessment
- 
-**Confidence level:** 🟢 High
- 
-| | |
-|---|---|
-| **Based on** | Direct personal experience and repeated observation across multiple students |
-| **What would increase confidence** | Interviews confirming frequency of missed updates and willingness to adopt a new tool |
- 
+
+### 5. Job to Be Done
+
+"When I am enrolled in multiple courses, I want to get timely notifications about important updates, so I can stay on top of deadlines and manage my time efficiently."  
+
 ---
- 
-## 🧑 Candidate ICP 2
- 
-> **Linked to problem:** Missed sports events due to scattered information
-> **Submitted by:** Davit Karoiani
- 
-### 2.1 Who Is This Person?
- 
-**Segment label:** KIU student participating in informal sports communities
- 
-**Demographics (relevant):**
-University student (18–24), participates in football or basketball games organized by peers, active on Facebook groups.
- 
-**Psychographics (relevant):**
-Enjoys social and physical activities, wants to stay involved in sports, but is not highly organized in tracking events. Relies on social platforms for updates.
- 
+
+### 6. Success Signal
+
+- Students no longer need to manually check multiple course pages.  
+- Fewer missed updates.  
+- Reduced stress and wasted time.  
+
 ---
- 
-### 2.2 Their Context
- 
-| | |
-|---|---|
-| **Where** | Facebook groups and Messenger chats where sports events are announced |
-| **When** | During the semester when games are being organized informally |
-| **How often** | Weekly |
- 
+
+### 7. Where to Find Them
+
+- University libraries and lecture halls.  
+- KIU LMS platforms and course forums.  
+- Student groups on Messenger or social media.  
+
 ---
- 
-### 2.3 Their Current Workaround
- 
-**What they do today:**
-Check Facebook groups occasionally, rely on friends to inform them, scroll through posts.
- 
-**Why it's inadequate:**
-Important posts get buried, information is easy to miss, and there is no clear schedule. This results in missed games and inconsistent participation.
- 
+
+### 8. Why You, Why Now
+
+- Our team members are KIU students and directly experience or observe this problem.  
+- Students are likely to give 30 minutes because the solution directly improves their daily routines.  
+
 ---
- 
-### 2.4 Why This Segment
- 
-This segment frequently experiences missed opportunities due to poor information flow. They are motivated by social and recreational value, and a better system would increase participation and engagement. They are easy to reach through existing student communities and social media groups.
- 
-**What would need to be true for this to be a strong ICP?**
-We need to confirm whether students would actually switch from Facebook to a new system and how often they miss events.
- 
+
+### Evidence Basis
+
+| Dimension | Confidence | Basis |
+|-----------|-----------|-------|
+| Segment | High | Observed in personal experience and peers |
+| Context | High | Observed across semester schedules |
+| Primary Pain | High | Direct experience and repeated observation |
+| Workaround | High | Known manual checking behavior |
+| JTBD | Medium | Assumed based on problem experience |
+| Success Signal | Medium | Assumed improvements, to be confirmed in interviews |
+
 ---
- 
-### 2.5 Confidence Assessment
- 
-**Confidence level:** 🟡 Medium
- 
-| | |
-|---|---|
-| **Based on** | Personal experience and observation, but less consistent across a wider group |
-| **What would increase confidence** | Interviews confirming how often students miss events and whether they want a better solution |
- 
+
+### Revision History
+
+| Version | Date | What changed | Interview evidence |
+|---------|------|--------------|-------------------|
+| v1.0 | March 25, 2026 | Initial hypothesis | Pre-interview |
+
 ---
- 
-## ⚖️ Comparison
- 
-| Dimension | Candidate ICP 1 | Candidate ICP 2 |
-|---|---|---|
-| Problem severity | 🔴 High | 🟡 Medium |
-| How reachable is this person? | 🟢 High (university students) | 🟢 High (same community) |
-| Personal connections to segment? | ✅ Yes | ✅ Yes |
-| Workaround cost (time / money / pain) | 🔴 High | 🟡 Medium |
-| Confidence in this ICP | 🟢 High | 🟡 Medium |
- 
+
+## Secondary ICP: Missed sports events due to scattered information
+
+### 1. Segment
+
+**Who is this person?**  
+KIU student (18–24) who participates in informal sports like football or basketball organized by peers. Active on Facebook groups or Messenger for event info, but not highly organized.  
+
+**Test:** Could you identify someone like this in a sports field or campus common area? Yes — look for students checking messages or social media about games.  
+
 ---
- 
-> **Team observation after comparing both:**
-> Both problems feel real and grounded in student experience, but the LMS problem appears more severe and consistent across a larger group, while the sports-related problem is more situational and less critical.
+
+### 2. Context
+
+**When and where does the problem occur?**  
+During the semester when informal sports games are being organized. Usually at home, on campus, or in student social spaces when checking updates.  
+
+**Test:** Specific enough to design interview questions about how students find out about sports events.  
+
+---
+
+### 3. Primary Pain
+
+Students miss sports games or arrive late because information about events is scattered, buried in posts, or delayed. This reduces participation and social engagement.  
+
+**Test:** Students reading this should think, “Yes, that’s exactly what happens to me.”  
+
+---
+
+### 4. Current Workaround
+
+- Check Facebook groups or Messenger chats occasionally.  
+- Ask friends for updates.  
+- Scroll through posts to find information.  
+
+**Why it’s inadequate:** Posts get buried, information is inconsistent, and students often miss games or arrive unprepared.  
+
+---
+
+### 5. Job to Be Done
+
+"When I want to participate in informal sports events, I want timely and clear notifications, so I can attend games consistently and stay socially active."  
+
+---
+
+### 6. Success Signal
+
+- Students no longer miss games due to scattered info.  
+- Participation in sports events increases.  
+- Less stress about keeping track of informal events.  
+
+---
+
+### 7. Where to Find Them
+
+- Facebook groups for KIU sports communities.  
+- Messenger chats or WhatsApp groups where events are shared.  
+- On-campus sports fields or student common areas.  
+
+---
+
+### 8. Why You, Why Now
+
+- Team members participate in student sports or know students who do.  
+- Students are likely to give 30 minutes because a solution improves social participation and engagement.  
+
+---
+
+### Evidence Basis
+
+| Dimension | Confidence | Basis |
+|-----------|-----------|-------|
+| Segment | Medium | Observed in personal experience and some peers |
+| Context | Medium | Observed during semester sports events |
+| Primary Pain | Medium | Observed, but less consistent than LMS problem |
+| Workaround | Medium | Assumed based on student behavior |
+| JTBD | Medium | To be confirmed in interviews |
+| Success Signal | Medium | To be validated in interviews |
+
+---
+
+### Revision History
+
+| Version | Date | What changed | Interview evidence |
+|---------|------|--------------|-------------------|
+| v1.0 | March 25, 2026 | Initial hypothesis | Pre-interview |
