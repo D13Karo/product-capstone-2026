@@ -1,8 +1,8 @@
 # Interview Script v1
 
 **Team Name:** The Merge Conflicters  
-**Problem:** KIU students miss assignment updates and schedule changes due to unreliable LMS notifications  
-**ICP (Ideal Customer Profile):** Primary — KIU students taking multiple courses who rely on LMS for academic updates  
+**Problem:** KIU students miss sports events and arrive unprepared due to scattered information across Facebook groups and Messenger chats
+**ICP (Ideal Customer Profile):** Primary — KIU students who participate in informal peer-organized sports events and rely on social media for event information
 **Version:** v1.0  
 **Date:** March 25, 2026  
 **Created by:** Davit Karoiani, Mariam Pirtskhalava, Mariam Tskhomelidze, Levan Kovziridze  
@@ -25,17 +25,17 @@ Each question follows the **Mom Test principles**:
 
 ## Screener Questions (Pre-Interview)
 
-1. Are you currently a KIU student taking at least 4 courses this semester?  
-2. Do you regularly use the LMS platform to check assignments or lecture updates?  
-3. Have you missed or nearly missed an assignment or class update this semester?  
+1. Are you currently a KIU student who participates in informal sports events organized by peers?
+2. Do you use Facebook groups or Messenger chats to find out about sports games or tournaments?
+3. Have you ever missed a game or arrived late because you didn't get the information in time?
 
 ---
 
 ## Interview Introduction
 
-> Thanks for taking the time to speak with me. I'm working on a university project where we're trying to understand how students manage their coursework and stay updated with assignments and schedule changes.  
+> Thanks for taking the time to speak with me. I’m working on a university project where we’re trying to understand how students find out about and keep track of informal sports events organized by peers.
 >
-> I’m not pitching anything—I just want to understand your experience. There are no right or wrong answers. I may take some notes, but everything you share is only for understanding the problem better.  
+> I’m not pitching anything—I just want to understand your experience. There are no right or wrong answers. I may take some notes, but everything you share is only for understanding the problem better.
 >
 > Does that sound okay?  
 >
@@ -45,63 +45,63 @@ Each question follows the **Mom Test principles**:
 
 ## Phase 1: Context & Daily Workflow
 
-**Q1:**  
-Can you walk me through a typical day during the semester, especially how you manage your courses and assignments?
+**Q1:**
+Can you walk me through how sports events like games or tournaments typically get organized in your circle?
 
-**Q2:**  
-How do you usually keep track of upcoming assignments and lectures?
+**Q2:**
+How do you usually find out about upcoming games or matches?
 
 **Follow-up prompts:**
-- Can you tell me more about that?  
-- How long have you been doing it this way?  
-- How well does that work for you?  
+- Can you tell me more about that?
+- How long have you been doing it this way?
+- How well does that work for you?
 
 ---
 
 ## Phase 2: Problem Exploration
 
-**Q3:**  
-What are the most frustrating or time-consuming parts of managing your coursework?
+**Q3:**
+What are the most frustrating or time-consuming parts of keeping up with sports events and scheduling?
 
-**Q4:**  
-Is there anything you find yourself checking repeatedly during the week just to stay updated?
+**Q4:**
+Is there anything you find yourself checking repeatedly during the week just to stay updated about games?
 
-**Q5:**  
-Tell me about a recent situation where something related to your coursework didn’t go as planned.
+**Q5:**
+Tell me about a recent situation where something related to a sports event didn’t go as planned.
 
 ---
 
 ## Phase 3: Deep Dive into the Problem
 
-**Q6:**  
-Can you walk me through the last time you missed or almost missed an assignment or schedule change?
+**Q6:**
+Can you walk me through the last time you missed a game or showed up and the event had changed?
 
-**Q7:**  
-What did you do when that happened? Why did you handle it that way?  
+**Q7:**
+What did you do when that happened? Why did you handle it that way?
 *(Use “why?” follow-ups to dig deeper)*
 
-**Q8:**  
-What was the outcome? Did it affect your time, grades, or stress level?
+**Q8:**
+What was the outcome? Did it affect your participation, mood, or plans for the day?
 
 ---
 
 ## Phase 4: Current Solutions
 
-**Q9:**  
-What do you usually do to make sure you don’t miss updates or deadlines?
+**Q9:**
+What do you usually do to make sure you don’t miss games or stay updated on results and standings?
 
-**Q10:**  
+**Q10:**
 How effective is that approach? What problems still occur?
 
-**Optional:**  
-Have you tried using any tools or apps to manage assignments or schedules? What was your experience?
+**Optional:**
+Have you tried using any tools or apps to track sports events or coordinate with your team? What was your experience?
 
 ---
 
 ## Phase 5: Closing
 
-**Q11 (Catch-all):**  
-Is there anything about managing your courses or staying updated that I didn’t ask about but you think is important?
+**Q11 (Catch-all):**
+Is there anything about keeping track of sports events or coordinating with your team that I didn’t ask about but you think is important?
 
 **Referral Question:**  
 Do you know anyone else who faces similar challenges? Would you be willing to connect me with them?
@@ -133,5 +133,5 @@ Do you know anyone else who faces similar challenges? Would you be willing to co
 2.  
 3.  
 
-**Main Hypothesis:**  
-Students frequently miss or struggle to keep up with LMS updates and rely heavily on manual checking or peer communication, leading to inefficiency, missed deadlines, and increased stress.
+**Main Hypothesis:**
+Students frequently miss or struggle to keep up with sports events and rely heavily on Facebook groups or asking friends, leading to missed participation, last-minute confusion, and reduced social engagement.

@@ -10,9 +10,9 @@
 
 ## The Problem We're Solving
 
-KIU students enrolled in multiple courses miss assignment updates and lecture rescheduling information because the LMS platform lacks reliable notifications. This leads to missed deadlines, unnecessary commuting, and increased stress. Current workarounds — manually checking each course page and relying on Messenger groups — are unreliable and time-consuming.
+KIU students who participate in informal peer-organized sports events miss games and arrive unprepared because event information is scattered across Facebook groups and Messenger chats. This leads to missed participation, wasted effort, and social disengagement. Current workarounds — scrolling through posts and asking friends — are unreliable and leave students without a centralized place to track schedules, results, or team coordination.
 
-**Four Filters Score: 12/12** — committed as of March 25, 2026.
+**Four Filters Score: 12/12** — committed as of March 27, 2026.
 
 ---
 
@@ -29,7 +29,7 @@ KIU students enrolled in multiple courses miss assignment updates and lecture re
 
 ## Current Phase
 
-We are in the **user discovery phase (Week 3)**. We have committed to our problem statement and are now conducting interviews with KIU students to validate the problem before exploring solutions.
+We are in the **user discovery phase (Week 3)**. We have committed to our problem statement and are now conducting interviews with KIU student athletes and sports participants to validate the problem before exploring solutions.
 
 ---
 
@@ -45,4 +45,4 @@ milestones/      # Weekly milestone tracking documents
 
 ## Status
 
-> **Week 3** — Problem committed (12/12 four filters). User interviews in progress.
+> **Week 3** — Pivoted to sports tracking (12/12 four filters). User interviews in progress.
