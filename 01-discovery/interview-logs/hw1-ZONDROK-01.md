@@ -1,7 +1,7 @@
 # HOMEWORK 1: Individual Interview Log
 
 **Student Name:** Mariam Tskhomelidze  
-**Course:** Introduction to Theory of Computation / KIU Technical Coursework  
+**Course:** Product Development For Software Engineers 
 **Date Submitted:** April 7, 2026  
 **Due Date:** April 8, 2026, 23:59  
 
