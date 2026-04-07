@@ -4,6 +4,7 @@
 **Date:** March 26, 2026
 **Duration:** 32 minutes
 **Interviewer:** Davit Karoiani
+**Co-interviewer:** Levan Kovziridze
 **Location:** Video call (Google Meet)
 
 ---
