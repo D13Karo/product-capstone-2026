@@ -1,6 +1,8 @@
 # Interview Log — Interview 01
 
 **Interviewee:** Khatia (last name withheld)
+**Interviewer:** Mariami Tskhomelidze
+**Co-interviewer:** Davit Karoian
 **Date:** March 26, 2026
 **Duration:** 28 minutes
 **Interviewer:** Mariam Tskhomelidze
