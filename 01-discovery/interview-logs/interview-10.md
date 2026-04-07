@@ -3,7 +3,8 @@
 **Interviewee:** Cotne (last name withheld)
 **Date:** April 1, 2026
 **Duration:** 45 minutes
-**Interviewer:** Davit Karoiani
+**Interviewer:** Levan Kovziridze
+**Co-interviewer:** Davit Karoiani
 **Location:** His room (dorm), after he finished playing games on his PC
 
 ---
