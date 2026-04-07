@@ -4,6 +4,7 @@
 **Date:** March 27, 2026
 **Duration:** 41 minutes
 **Interviewer:** Mariam Tskhomelidze
+**Co-interviewer:** Mariam Pirtskhalava
 **Location:** KIU campus, bench outside main building
 
 ---
