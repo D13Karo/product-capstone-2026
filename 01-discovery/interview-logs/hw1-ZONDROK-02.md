@@ -1,3 +1,8 @@
+**Student Name:** Mariam Tskhomelidze  
+**Course:** Product Development For Software Engineers 
+**Date Submitted:** April 7, 2026  
+**Due Date:** April 8, 2026, 23:59  
+
 ## Interview Log 02: The Failure of the "Power User"
 
 ### 1. Metadata
