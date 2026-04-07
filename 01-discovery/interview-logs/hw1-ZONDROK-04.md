@@ -3,7 +3,7 @@
 **Date Submitted:** April 7, 2026  
 **Due Date:** April 8, 2026, 23:59  
 
-## Interview Log 02: The Failure of the "Power User"
+## Interview Log 04: The Failure of the "Power User"
 
 ### 1. Metadata
 * **Date:** March 28, 2026
