@@ -1,0 +1,47 @@
+# HOMEWORK 1: Individual Interview Log
+
+**Student Name:** Mariam Pirtskhalava  
+**Course:** Product Development For Software Engineers
+**Date Submitted:** April 8, 2026  
+**Due Date:** April 8, 2026, 23:59  
+
+---
+
+## Interview Log 08: The Social Erosion Factor
+
+### 1. Metadata
+* **Date:** March 30, 2026
+* **Duration:** 36 minutes
+* **Interviewer:** Mariam Pirtskhalava
+* **Interviewee Pseudonym:** Nana (KIU-CS-08)
+* **Recruitment:** Intercepted at the KIU cafeteria; identified as an active volleyball player.
+
+### 2. ICP Fit Assessment
+* **Profile:** 3rd-year CS student at KIU.
+* **Evidence:** Plays volleyball and runs regularly. Motivated by social connection and community vibes.
+* **Pain Point:** Has witnessed multiple sports groups dissolve entirely because coordination was "too much work."
+* **ICP Match:** **Confirmed.** She represents the "Community Glue" segment.
+
+### 3. Verbatim Quotes
+> "When people don't show up, it's not that they don't care — they just didn't know. But it still ruins the game for everyone who did show up."
+>
+> "I've seen two sports groups completely fall apart because organizing kept being chaotic... it ends with nobody bothering to organize anymore."
+>
+> "One message said 'maybe cancel?' and nobody followed up. One person saw that and assumed it was cancelled."
+>
+> "Four people wasted their afternoon. And it wasn't anyone's fault — the system just failed."
+>
+> "Sport is supposed to bring people together. But when logistics fail every week, people stop trying."
+
+### 4. Problem Exploration Narrative
+Nana provided a perspective on the "second-order" effects of bad data. While other students focus on their personal schedule, Nana cares about the **survival of the group**. She explained that every time a game is poorly coordinated, it drains the group's social energy. 
+
+She detailed a volleyball match in March where a "maybe cancel?" message led to half the team staying home while the other half showed up to an empty court. This "failed coordination" creates a cycle of apathy. Nana has become an **unofficial confirmation relay**, manually texting individuals to make sure games happen, which she described as an exhausting and unsustainable workaround.
+
+### 5. Mom Test Compliance Check
+* **Pass:** I dug into her history with groups that no longer exist. By asking, "What was the specific turning point for the group that stopped playing?" I found that the issue wasn't lack of interest in sports, but "logistical fatigue."
+* **Fail:** I spent too much time in the "empathy trap," agreeing with her that it's "sad" when groups fall apart instead of asking for more specific numbers.
+* **Correction:** I should have asked: "In the week that the group dissolved, how many times did an organizer post the wrong information?" to get a concrete failure rate.
+
+### 6. Personal Reflection
+Nana taught me that the "pain" of this problem is cumulative. It’s not just about one missed game; it’s about the **slow death of a community**. It shifted my thinking: we are building a tool that preserves the social fabric of KIU sports by removing the frustration that makes people want to quit.
