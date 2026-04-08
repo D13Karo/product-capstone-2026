@@ -1,0 +1,44 @@
+# HOMEWORK 1: Individual Interview Log
+
+**Student Name:** Mariam Pirtskhalava  
+**Course:** Product Development For Software Engineers
+**Date Submitted:** April 8, 2026  
+**Due Date:** April 8, 2026, 23:59  
+## Interview Log 02: The Competitive Readiness Gap
+
+### 1. Metadata
+* **Date:** March 31, 2026
+* **Duration:** 27 minutes
+* **Interviewer:** Mariam Pirtskhalava
+* **Interviewee Pseudonym:** Tiko (KIU-CS-09)
+* **Recruitment:** Scheduled via Google Meet; identified as a high-intensity competitive player.
+
+### 2. ICP Verification
+* **Profile:** 3rd-year CS student, competitive football/futsal player.
+* **Evidence:** Mentally tracks stats and tournament brackets; references games by specific dates.
+* **Pain Point:** Late information ruins her mental preparation and warm-up routines.
+* **ICP Match:** **Confirmed.** She is the "Early Adopter" who demands professional-grade reliability.
+
+### 3. Verbatim Quotes
+> "I had mentally prepared for one opponent. The schedule changed and I had five minutes to adjust. That's not a small thing — preparation matters."
+>
+> "Everyone acts like missed games and wrong schedules are normal. They're not normal. We've just accepted something broken."
+>
+> "I complained about this in the chat and nobody cared. If someone built a proper system, I would switch immediately."
+>
+> "I had already mentally prepared for one game. My warmup was calibrated for that opponent."
+>
+> "It's just what we've accepted because nobody has fixed it."
+
+### 4. Problem Exploration Narrative
+Tiko is the "Extreme User." For her, the current system isn't just annoying—it’s an **embarrassment to the sport**. She described a tournament where the bracket changed just 30 minutes before kickoff. To a casual player, this is a minor shift; to Tiko, it ruined her mental calibration and physical warm-up.
+
+She has tried to be a "whistleblower" in group chats, complaining about the lack of organization, but she was dismissed. This suggests that current tools (Messenger) don't allow for accountability or feedback. Tiko is currently doing the heavy lifting of screenshotting and triple-checking, but she is clearly "on the edge" and ready to jump to any tool that promises accuracy.
+
+### 5. Mom Test Compliance Check
+* **Pass:** When Tiko said she would "switch immediately," I treated it as a potential lie (as the Mom Test suggests). I followed up by asking: "What was the last app you tried to introduce to your team, and how did that go?" This tested her actual influence as an early adopter.
+* **Fail:** I let her talk about how "everyone" feels about the system. 
+* **Correction:** I should have stopped the "everyone" talk and asked: "Give me the specific date of the last time *you* complained in the chat, and what exactly did you say?" to get the verbatim record of the friction.
+
+### 6. Personal Reflection
+Tiko made me realize that there is a **performance cost** to bad logistics. This isn't just about showing up; it's about being ready to play. It moved my thinking from "making things easier" to "making things professional." If we don't satisfy the Tikos of the world, our app won't be trusted by the serious players.
