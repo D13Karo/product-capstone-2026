@@ -46,12 +46,12 @@ All team members reviewed and agreed on this NSM:
 
 | Name | Role | Agreement |
 | :--- | :--- | :--- |
-| [Team Member 1 Name] | [Role] | [x] Agreed |
-| [Team Member 2 Name] | [Role] | [x] Agreed |
-|[Team Member 3 Name] | [Role] | [x] Agreed |
-|[Team Member 4 Name] | [Role] | [x] Agreed |
+| Davit Karoiani | Program Lead | [x] Agreed |
+| Mariam Pirtskhalava | Discovery Lead | [x] Agreed |
+| Mariam Tskhomelidze | Tech Lead | [x] Agreed |
+| Levan Kovziridze | Test Lead |[x] Agreed |
 
-**Date agreed:** 09 April 2026
+Date agreed: 09 April 2026
 
 ## Change Log
 | Date | Change | Reason |
