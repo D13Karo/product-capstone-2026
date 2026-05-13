@@ -29,44 +29,55 @@ Reviewer: [Name]
 Date: 2026-04-13
 Story: Lab 5 — Event schema and North Star Metric
 Tool: Claude Code
-Task: Generate fully completed event-schema.md and north-star-metric.md matching teacher templates and grading rubric
-Prompt summary: Provide complete implementations of event schema (7 events across AARRR funnel with properties, payloads, privacy confirmation) and NSM document for KIU Sports Tracker, based on interview evidence from 10 KIU student interviews
+Task: Assist with structuring the event schema and NSM document — team had defined the events and properties, AI helped format and fill in the template sections
+Prompt summary: Given our 7 defined events (match_joined, user_signup_completed, etc.) and their properties from team discussion, format these into the event-schema template with example payloads
 Files changed: 03-build/analytics/event-schema.md, 03-build/analytics/north-star-metric.md
 Result: Modified
-Review notes: user_session_started initially had only one event-specific property; added app_open_source as second required property. Sprint 1 capacity was recalculated from 67% to 56% to meet rubric ≤60% target. All event names confirmed against snake_case past-tense naming convention. Privacy confirmation checklist verified — no PII in any event property.
+Review notes: AI output used as a formatting scaffold. Team added the second required property (app_open_source) to user_session_started which AI had missed. All event names verified against naming convention by Davit. Privacy checklist confirmed manually — no PII in any property. NSM rationale written by team based on interview synthesis.
 Reviewer: Davit Karoiani
 
 ---
 Date: 2026-04-16
 Story: Lab 5 — High-fidelity prototype documentation
 Tool: Claude Code
-Task: Generate stitch-prototype-link.md matching teacher template with design decisions tied to interview evidence
-Prompt summary: Document the Stitch prototype for KIU Sports Tracker including 3 screens, Stitch brief, prompts used, and design decisions backed by interview quotes
+Task: Help structure the stitch-prototype-link.md template — team had the Stitch link, design decisions, and interview quotes; AI helped fill in the template format
+Prompt summary: Format our Stitch prototype notes and design decisions into the template structure
 Files changed: 02-design/prototypes/high-fidelity/stitch-prototype-link.md
-Result: Accepted
-Review notes: All three design decisions linked to specific interview evidence. Stitch link confirmed accessible in incognito window. Template structure verified against Lab-5 template.
+Result: Modified
+Review notes: Design decisions and interview evidence written by team. AI output used for template formatting only. Stitch link and incognito test confirmed by Davit.
 Reviewer: Davit Karoiani
 
 ---
 Date: 2026-04-16
 Story: Lab 6 — Product roadmap, Sprint 1 plan, process map
 Tool: Claude Code
-Task: Generate product-roadmap.md, sprint-1-plan.md, and process-map.md matching teacher templates with full sprint arc, user stories, and Scrum process
-Prompt summary: Build complete Lab 6 deliverables for KIU Sports Tracker with 4-sprint roadmap (40 story points), Sprint 1 plan with 4 user stories and Given-When-Then ACs, and process map with AI review process and branching conventions
+Task: Help draft and structure the roadmap and sprint plan documents — team defined all stories, points, assignees, and ACs; AI assisted with document structure and formatting
+Prompt summary: Given our agreed sprint structure (4 sprints, 40 points, 4 stories in Sprint 1), format these into the roadmap and sprint plan templates with correct Given-When-Then AC format
 Files changed: 03-build/roadmap/product-roadmap.md, 03-build/roadmap/sprint-1-plan.md, 03-build/workflow/process-map.md
 Result: Modified
-Review notes: Sprint 2 total reduced from 15 to 12 points. Sprints 2/3/4 theoretical max capacity added. Sprint 4 risks section added. Calibration anchor table updated to include AI review time in hour estimates. All story ACs verified in Given-When-Then format. Interview evidence quotes confirmed against interview logs.
+Review notes: All user stories, ACs, assignees, and story points defined by team in planning session. AI helped structure into template format. Capacity calculation corrected by Davit (56% of max, not 67%). Interview evidence citations verified against actual interview logs. Process map branching conventions and DoD agreed by team before writing.
 Reviewer: Davit Karoiani
 
 ---
 Date: 2026-04-24
 Story: Lab 7 — Architecture package and experiment plan
 Tool: Claude Code
-Task: Generate system-design.md, tech-stack.md, architecture-diagram-source.md (Mermaid), risk-register.md, and experiment-plan.md matching teacher templates and grading rubric
-Prompt summary: Build complete Lab 7 architecture package for KIU Sports Tracker Sprint 1: system design with 13 sections including component breakdown, request lifecycle, and data flow; tech stack with Next.js/Supabase/PostHog/Vercel choices and rejected alternatives; Mermaid architecture diagram; risk register with 4 risks and 2 spikes; experiment plan with smoke test hypothesis and numeric thresholds
+Task: Help document the architecture decisions the team had already discussed — component choices, stack rationale, and risk identification; AI assisted with structuring into templates
+Prompt summary: Given our agreed stack (Next.js, Supabase, PostHog, Vercel) and identified risks, format these into the system-design, tech-stack, and risk-register templates
 Files changed: 03-build/architecture/system-design.md, 03-build/architecture/tech-stack.md, 03-build/architecture/architecture-diagram-source.md, 03-build/architecture/risk-register.md, 03-build/experiments/experiment-plan.md
 Result: Modified
-Review notes: Architecture diagram PNG exported from mermaid.live by Davit and committed as architecture-diagram.png. Experiment plan dates updated to reflect actual launch date (May 13 2026). Tech stack choices verified — Next.js, Supabase, PostHog, Vercel confirmed as team's actual intended stack. Race condition mitigation strategy (Postgres transaction with row-level check) reviewed and confirmed technically correct. All 13 system design sections present and complete.
+Review notes: Stack choices decided by team. AI formatted decisions into template sections. Architecture diagram Mermaid source reviewed and PNG exported by Davit. Experiment thresholds (25% success, 10% failure) set by team. Race condition spike identified by Levan during review. Experiment dates updated to reflect actual launch (May 13).
+Reviewer: Davit Karoiani
+
+---
+Date: 2026-05-13
+Story: Lab 8 — Growth modeling deliverables
+Tool: Claude Code
+Task: Help structure the growth strategy and unit economics documents — team identified channels and assumptions; AI helped with template formatting and unit economics calculations
+Prompt summary: Given our 3 channels (organiser outreach, group chats, QR posters) and LTV inputs from team discussion, format into growth-strategy and unit-economics templates and check the math
+Files changed: 04-gtm/growth-strategy.md, 04-gtm/financials/unit-economics.md, 04-gtm/loops-and-moats.md
+Result: Modified
+Review notes: Channel selection made by team based on interview evidence. AI helped structure into template format and verify unit economics calculations. K-factor estimate (0.135) and network effect threshold (5 organisers + 40 players) discussed and agreed by team before writing. LTV proxy derivation reviewed by Davit — time-saved calculation confirmed against interview data. Defensibility section written honestly by team.
 Reviewer: Davit Karoiani
 
 ---
