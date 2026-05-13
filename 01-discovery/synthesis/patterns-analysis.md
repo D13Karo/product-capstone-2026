@@ -346,7 +346,7 @@ P3's frequency (7/10) is somewhat suppressed because passive participants don't 
 
 ---
 
-**Document Status:** ☑ Complete ☐ Draft ☐ Team reviewed ☐ Instructor reviewed
+**Document Status:** ☑ Complete ☐ Draft ☑ Team reviewed ☐ Instructor reviewed
 **Completed by:** Davit Karoiani, Mariam Pirtskhalava, Mariam Tskhomelidze, Levan Kovziridze
 **Date:** April 6, 2026
 

@@ -10,9 +10,9 @@
 
 ## The Problem We're Solving
 
-KIU students who participate in informal peer-organized sports events miss games and arrive unprepared because event information is scattered across Facebook groups and Messenger chats. This leads to missed participation, wasted effort, and social disengagement. Current workarounds — scrolling through posts and asking friends — are unreliable and leave students without a centralized place to track schedules, results, or team coordination.
+KIU students who participate in informal peer-organized sports events consistently miss game time or location changes, arrive unprepared, or show up to cancelled events because schedule updates get buried in the noise of general-purpose group chats (Messenger, Facebook, WhatsApp) and are spread inconsistently across multiple platforms with no single source of truth. During the academic semester, in the 24–48 hours before each game, critical updates compete with casual conversation for attention — with no way to distinguish a cancellation from a meme. As a result, 7 in 10 students we interviewed missed at least one game last semester due to an information failure; group games are frequently cancelled for lack of quorum; informal sports communities gradually dissolve as participants lose confidence that showing up is worth the effort; and the organizers who hold these groups together spend more time on logistics than on playing, with at least one considering quitting. The current workaround — checking multiple chats, taking screenshots, texting the organizer directly — fails systematically: every workaround we documented either required unsustainable effort or made the fragmentation worse.
 
-**Four Filters Score: 12/12** — committed as of March 27, 2026.
+**Evidence base:** 10 interviews · 68 affinity insights · 3 validated patterns · Average pain intensity 4.0/5
 
 ---
 
@@ -29,7 +29,7 @@ KIU students who participate in informal peer-organized sports events miss games
 
 ## Current Phase
 
-We are in the **user discovery phase (Week 3)**. We have committed to our problem statement and are now conducting interviews with KIU student athletes and sports participants to validate the problem before exploring solutions.
+We are in **Week 4 — Synthesis & Problem Validation**. Discovery is complete. 10 interviews conducted, synthesized, and validated into an evidence-based problem statement.
 
 ---
 
@@ -37,7 +37,7 @@ We are in the **user discovery phase (Week 3)**. We have committed to our proble
 
 ```
 00-foundation/   # Team contract, problem statement, ICP profiles, four filters evaluation
-01-discovery/    # Interview scripts, outreach tracker, and interview logs
+01-discovery/    # Interview scripts, outreach tracker, interview logs, and synthesis documents
 milestones/      # Weekly milestone tracking documents
 ```
 
@@ -45,4 +45,4 @@ milestones/      # Weekly milestone tracking documents
 
 ## Status
 
-> **Week 3** — Pivoted to sports tracking (12/12 four filters). User interviews in progress.
+> **Week 4** — Discovery complete. 10/10 interviews done. Problem validated.
