@@ -81,3 +81,25 @@ Review notes: Channel selection made by team based on interview evidence. AI hel
 Reviewer: Davit Karoiani
 
 ---
+Date: 2026-05-07
+Story: S1-01, S1-02, S1-03, S1-04 — Sprint 1 full frontend build
+Tool: Claude Code
+Task: Build the complete React Native + Expo frontend — auth screen, feed screen, match detail, join confirmation, theme system, mock data layer, sport icons
+Prompt summary: Session-based iterative build; implemented university email domain validation, match filtering by university domain, ThemeContext for dark/light mode, MaterialCommunityIcons sport icons replacing all emoji placeholders
+Files changed: app/auth.tsx, app/feed.tsx, app/match/[id]/index.tsx, app/match/[id]/confirm.tsx, app/index.tsx, app/_layout.tsx, lib/mock-data.ts, constants/universities.ts, constants/colors.ts, context/ThemeContext.tsx, context/AuthContext.tsx, components/SportIcon.tsx
+Result: Modified
+Review notes: All generated code read line by line. Domain validation logic and ThemeContext reviewed by Davit. All Sprint 1 ACs verified manually against acceptance criteria in sprint-1-plan.md. Chess added as 6th sport after team discussion. Tournament section added to feed.
+Reviewer: Davit Karoiani
+
+---
+Date: 2026-05-14
+Story: Sprint 1 close-out — architecture docs and standup log
+Tool: Claude Code
+Task: Update architecture documents to reflect actual Sprint 1 stack (React Native + Expo, not the earlier Next.js draft); create standup log and usability findings
+Prompt summary: Rewrite system-design.md and tech-stack.md to match what was actually built; create docs/standup-log.md with Sprint 1 entries; create 02-design/user-testing/usability-findings.md from 5-user test
+Files changed: 03-build/architecture/system-design.md, 03-build/architecture/tech-stack.md, docs/standup-log.md, 02-design/user-testing/usability-findings.md
+Result: Modified
+Review notes: Architecture documents originally drafted with Next.js + Supabase stack; rewritten to reflect React Native + Expo. Content reviewed by Davit for accuracy against actual repo. Usability findings written from real participant sessions conducted by Mariam Pirtskhalava.
+Reviewer: Davit Karoiani
+
+---
