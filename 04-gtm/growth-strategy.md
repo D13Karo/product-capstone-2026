@@ -1,7 +1,7 @@
 # Growth Strategy
 
 **Team:** TheMergeConflicters
-**Product:** KIU Sports Tracker — a push-based match coordination tool that notifies KIU students when match times or locations change, replacing fragmented group chat announcements with one reliable source of truth.
+**Product:** CampusSport — a push-based match coordination tool that notifies KIU students when match times or locations change, replacing fragmented group chat announcements with one reliable source of truth.
 **Document version:** 1.0
 **Last updated:** 13 May 2026
 
@@ -50,7 +50,7 @@ Pulled from CP1 problem statement. KIU university students who participate in in
 **Type:** Organic
 
 **Why this channel:**
-- **Fit:** Every single interviewee (10 out of 10) coordinates sports via Messenger or WhatsApp group chats. This is exactly where our target user is already looking for match information. Sharing a KIU Sports Tracker match link in the group chat replaces the announcement they would have received anyway — with a link to join instead of a wall of text to parse.
+- **Fit:** Every single interviewee (10 out of 10) coordinates sports via Messenger or WhatsApp group chats. This is exactly where our target user is already looking for match information. Sharing a CampusSport match link in the group chat replaces the announcement they would have received anyway — with a link to join instead of a wall of text to parse.
 - **Speed:** Immediate. Our smoke test experiment (launched May 13) is already running in sports group chats and producing conversion signal. The infrastructure for this channel is already active.
 - **Cost:** Founder time only. Approximately 2 hours per week to post in groups, respond to questions, and track link performance. No tooling cost beyond existing accounts.
 
@@ -75,7 +75,7 @@ Pulled from CP1 problem statement. KIU university students who participate in in
 - **Cost:** Approximately $20 for 20 A4 colour posters at the campus print shop. Plus 1 hour of founder time to put them up and 30 minutes per week to refresh. Total under $45 over 4 weeks.
 
 **What we will do in Sprint 2:**
-1. Design a minimal poster: KIU Sports Tracker logo, one sentence ("Never miss a match update again"), large QR code, link text below the code.
+1. Design a minimal poster: CampusSport logo, one sentence ("Never miss a match update again"), large QR code, link text below the code.
 2. Print 20 copies.
 3. Post at: KIU football pitch entrance, basketball court area, volleyball court, main sports hall entrance, student cafeteria near the sports facilities.
 4. Use a unique UTM parameter in the QR code URL to track scans separately from digital channels.

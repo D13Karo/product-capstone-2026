@@ -1,7 +1,7 @@
 # Tech Stack Selection
 
 **Team:** TheMergeConflicters
-**Product:** KIU Sports Tracker
+**Product:** CampusSport
 **Date:** 24 April 2026
 **Version:** 1.0
 

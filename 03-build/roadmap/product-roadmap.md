@@ -1,7 +1,7 @@
 # Product Roadmap
 
 **Team:** TheMergeConflicters  
-**Product:** KIU Sports Tracker  
+**Product:** CampusSport  
 **Date:** 16 April 2026  
 **Version:** 1.0  
 **Sprint Arc:** April 24 to June 11 2026 (4 sprints, 8 weeks)
@@ -12,7 +12,7 @@
 
 ### What We Are Building
 
-KIU Sports Tracker is a lightweight, push-based sports coordination tool for KIU students. The organiser posts a match once — sport type, time, location, player limit — and all registered participants receive a direct notification. When anything changes, the notification goes out automatically. There is no re-announcement cycle, no multi-platform duplication, and no information buried in general chat noise. The product directly addresses the validated problem: KIU students consistently miss game time or location changes because schedule updates get buried in general-purpose group chats spread across multiple platforms with no single source of truth (10/10 interviews, average pain intensity 4.0–4.1/5).
+CampusSport is a lightweight, push-based sports coordination tool for KIU students. The organiser posts a match once — sport type, time, location, player limit — and all registered participants receive a direct notification. When anything changes, the notification goes out automatically. There is no re-announcement cycle, no multi-platform duplication, and no information buried in general chat noise. The product directly addresses the validated problem: KIU students consistently miss game time or location changes because schedule updates get buried in general-purpose group chats spread across multiple platforms with no single source of truth (10/10 interviews, average pain intensity 4.0–4.1/5).
 
 ### North Star Metric
 

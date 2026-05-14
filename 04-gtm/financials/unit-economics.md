@@ -1,7 +1,7 @@
 # Unit Economics Analysis
 
 **Team:** TheMergeConflicters
-**Product:** KIU Sports Tracker
+**Product:** CampusSport
 **Document version:** 1.0
 **Last updated:** 13 May 2026
 

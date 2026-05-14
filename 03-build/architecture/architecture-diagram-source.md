@@ -2,7 +2,7 @@
 
 **Final required file:** `03-build/architecture/architecture-diagram.png`
 **Team:** TheMergeConflicters
-**Product:** KIU Sports Tracker
+**Product:** CampusSport
 **Date:** 24 April 2026
 
 > This file contains the Mermaid source for the architecture diagram. Export the diagram below to PNG using the [Mermaid Live Editor](https://mermaid.live), paste the code, and save the PNG as `architecture-diagram.png` in this folder.

@@ -10,9 +10,20 @@
 
 ## The Problem We're Solving
 
-KIU students who participate in informal peer-organized sports events consistently miss game time or location changes, arrive unprepared, or show up to cancelled events because schedule updates get buried in the noise of general-purpose group chats (Messenger, Facebook, WhatsApp) and are spread inconsistently across multiple platforms with no single source of truth. During the academic semester, in the 24–48 hours before each game, critical updates compete with casual conversation for attention — with no way to distinguish a cancellation from a meme. As a result, 7 in 10 students we interviewed missed at least one game last semester due to an information failure; group games are frequently cancelled for lack of quorum; informal sports communities gradually dissolve as participants lose confidence that showing up is worth the effort; and the organizers who hold these groups together spend more time on logistics than on playing, with at least one considering quitting. The current workaround — checking multiple chats, taking screenshots, texting the organizer directly — fails systematically: every workaround we documented either required unsustainable effort or made the fragmentation worse.
+KIU students who participate in informal peer-organized sports events consistently miss game time or location changes, arrive unprepared, or show up to cancelled events because schedule updates get buried in the noise of general-purpose group chats (Messenger, Facebook, WhatsApp) spread across multiple platforms with no single source of truth.
 
 **Evidence base:** 10 interviews · 68 affinity insights · 3 validated patterns · Average pain intensity 4.0/5
+
+---
+
+## The Product
+
+**CampusSport** — a platform that connects university students to informal sports matches on campus. Students sign up with their university email, see only their university's matches, and get notified when match times or locations change.
+
+| Repo | Description |
+|---|---|
+| [Frontend](https://github.com/D13Karo/SportActivityAppFRONTEND) | React Native + Expo mobile app |
+| [Backend](https://github.com/D13Karo/SportActivityAppBACKEND) | Django REST API |
 
 ---
 
@@ -20,29 +31,38 @@ KIU students who participate in informal peer-organized sports events consistent
 
 | Name | Role | GitHub |
 |---|---|---|
-| Davit Karoiani | Program Lead | [@D13Karo](https://github.com/D13Karo) |
+| Davit Karoiani | Product Owner | [@D13Karo](https://github.com/D13Karo) |
 | Mariam Pirtskhalava | Discovery Lead | [@pircxo](https://github.com/pircxo) |
-| Mariam Tskhomelidze | Tech Lead | [@ZONDROK](https://github.com/ZONDROK) |
+| Mariam Tskhomelidze | Scrum Master | [@ZONDROK](https://github.com/ZONDROK) |
 | Levan Kovziridze | Test Lead | [@Leo-21-K](https://github.com/Leo-21-K) |
 
 ---
 
 ## Current Phase
 
-We are in **Week 4 — Synthesis & Problem Validation**. Discovery is complete. 10 interviews conducted, synthesized, and validated into an evidence-based problem statement.
+**Sprint 2** (May 8 – May 21) — Organiser match creation, push notifications, PostHog analytics. Checkpoint 3 due May 21.
 
 ---
 
 ## Repository Structure
 
 ```
-00-foundation/   # Team contract, problem statement, ICP profiles, four filters evaluation
-01-discovery/    # Interview scripts, outreach tracker, interview logs, and synthesis documents
-milestones/      # Weekly milestone tracking documents
+00-foundation/   # Team contract, problem statement, ICP profiles
+01-discovery/    # Interview scripts, logs, synthesis, competitive landscape
+02-design/       # Prototypes (Stitch), usability findings
+03-build/        # Roadmap, sprint plans, architecture, analytics, experiments
+04-gtm/          # Growth strategy, unit economics, loops and moats
+docs/            # AI usage log
+milestones/      # Weekly milestone tracking
 ```
 
 ---
 
-## Status
+## Sprint Overview
 
-> **Week 4** — Discovery complete. 10/10 interviews done. Problem validated.
+| Sprint | Dates | Theme | Status |
+|--------|-------|-------|--------|
+| Sprint 1 | Apr 24 – May 7 | Foundation — core user flow end to end | Complete |
+| Sprint 2 | May 8 – May 21 | Instrumentation — organiser flow, push notifications, analytics | In progress |
+| Sprint 3 | May 22 – Jun 4 | Growth — quorum, share/invite, match management | Upcoming |
+| Sprint 4 | Jun 5 – Jun 11 | Demo Day prep | Upcoming |

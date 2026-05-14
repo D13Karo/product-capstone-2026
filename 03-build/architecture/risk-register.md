@@ -1,7 +1,7 @@
 # Risk Register
 
 **Team:** TheMergeConflicters
-**Product:** KIU Sports Tracker
+**Product:** CampusSport
 **Date:** 24 April 2026
 
 ---

@@ -1,7 +1,7 @@
 # System Design Document
 
 **Team:** TheMergeConflicters
-**Product:** KIU Sports Tracker
+**Product:** CampusSport
 **Date:** 24 April 2026
 **Version:** 1.0
 **Primary author:** Davit Karoiani
@@ -22,7 +22,7 @@ A KIU student signs up, browses upcoming sports matches, taps one to view full d
 
 ## 2. System Goal
 
-By Sprint 1 review (May 7), KIU Sports Tracker must support one complete end-to-end user flow on a public Vercel URL. A new student must be able to create an account, browse seeded upcoming matches, view match details, join a match, and see a confirmation screen. The system must persist RSVP records in a database, decrement the spots-remaining counter in real time, and fire the `match_joined` PostHog event with the properties defined in the event schema. The design prioritises delivery speed, mobile-first rendering, and demo reliability over completeness — no features outside the core flow ship in Sprint 1.
+By Sprint 1 review (May 7), CampusSport must support one complete end-to-end user flow on a public Vercel URL. A new student must be able to create an account, browse seeded upcoming matches, view match details, join a match, and see a confirmation screen. The system must persist RSVP records in a database, decrement the spots-remaining counter in real time, and fire the `match_joined` PostHog event with the properties defined in the event schema. The design prioritises delivery speed, mobile-first rendering, and demo reliability over completeness — no features outside the core flow ship in Sprint 1.
 
 ---
 
@@ -53,7 +53,7 @@ By Sprint 1 review (May 7), KIU Sports Tracker must support one complete end-to-
 
 Describes the join match flow — the core Sprint 1 activation path.
 
-1. Student opens the public KIU Sports Tracker Vercel URL on mobile browser.
+1. Student opens the public CampusSport Vercel URL on mobile browser.
 2. Frontend checks for an active Supabase Auth session.
 3. If no session exists, the student is redirected to the signup or login screen.
 4. Student submits email and password — Supabase Auth creates the account and returns a session token.

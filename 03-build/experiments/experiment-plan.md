@@ -1,7 +1,7 @@
 # Experiment Plan
 
 **Team:** TheMergeConflicters
-**Product:** KIU Sports Tracker
+**Product:** CampusSport
 **Date launched:** 13 May 2026
 **Owner:** Mariam Tskhomelidze
 
@@ -9,7 +9,7 @@
 
 ## 1. Hypothesis
 
-We believe KIU students who participate in informal sports matches will sign up for early access to KIU Sports Tracker at a rate of 25% or more because they experience real pain when match time or location changes are buried in group chats and they miss games as a result.
+We believe KIU students who participate in informal sports matches will sign up for early access to CampusSport at a rate of 25% or more because they experience real pain when match time or location changes are buried in group chats and they miss games as a result.
 
 ---
 

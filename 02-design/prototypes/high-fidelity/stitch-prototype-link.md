@@ -1,7 +1,7 @@
 # High-Fidelity Prototype: Stitch
 
 **Team:** TheMergeConflicters  
-**Product:** KIU Sports Tracker  
+**Product:** CampusSport  
 **Tool:** Google Stitch (https://stitch.withgoogle.com)  
 **Created:** 09 April 2026  
 **Status:** Draft (Lab 5) / Final (by April 23)
@@ -39,7 +39,7 @@ A KIU student browses available informal sports matches, views match details, an
 ## Stitch Brief Used
 
 ```
-Product name: KIU Sports Tracker
+Product name: CampusSport
 
 Primary user: A KIU university student who wants to find and join
 informal sports matches on campus without the chaos of Messenger
@@ -69,7 +69,7 @@ white colour scheme. Card-based layout for match listings.
 
 **Initial prompt:**
 ```
-Build a mobile-first web app called KIU Sports Tracker. The primary
+Build a mobile-first web app called CampusSport. The primary
 user is a university student who wants to find and join informal
 sports matches on campus without having to scroll through Messenger
 group chats. Screen 1: a home screen showing a list of upcoming

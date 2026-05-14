@@ -1,7 +1,7 @@
 # AI Usage Log
 
 **Team:** TheMergeConflicters
-**Product:** KIU Sports Tracker
+**Product:** CampusSport
 
 This file is updated every time AI-generated output is used in the project. It is audited at Checkpoint 3.
 

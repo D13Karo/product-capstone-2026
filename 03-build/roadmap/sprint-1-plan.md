@@ -1,7 +1,7 @@
 # Sprint 1 Plan
 
 **Team:** TheMergeConflicters  
-**Product:** KIU Sports Tracker  
+**Product:** CampusSport  
 **Sprint:** 1 of 4  
 **Dates:** April 24 to May 7 2026  
 **Product Owner:** Davit Karoiani  
@@ -79,7 +79,7 @@ Source: Interview #10 (Cotne, builder/player, March 2026) — "Any solution need
 
 **Story Points:** 3  
 **Assignee:** Davit Karoiani  
-**AI Tool:** Google AI Studio  
+**AI Tool:** Claude Code  
 **AI Tool Rationale:** AI Studio is best for prototyping the auth flow with a backend (user record creation, session management) before wiring it into the main app.
 
 **Acceptance Criteria:**
@@ -121,7 +121,7 @@ Source: Interview #07 (Misho, low-effort user, March 2026) — "Just ping me dir
 
 **Story Points:** 3  
 **Assignee:** Mariam Tskhomelidze  
-**AI Tool:** Google Stitch  
+**AI Tool:** Claude Code  
 **AI Tool Rationale:** Stitch generates the card-based match list UI from a structured prompt. The core layout was already prototyped in Lab 5 — Mariam T. brings that Stitch output into the codebase and connects it to real data.
 
 **Acceptance Criteria:**
@@ -163,7 +163,7 @@ Source: Interview #03 (Giorgi, March 2026) — "Game moved one hour earlier — 
 
 **Story Points:** 2  
 **Assignee:** Mariam Pirtskhalava  
-**AI Tool:** Google Stitch  
+**AI Tool:** Claude Code  
 **AI Tool Rationale:** Stitch already produced a match detail screen in the Lab 5 prototype. Mariam P. adapts that output, connects it to the real match record, and verifies all fields render from live data.
 
 **Acceptance Criteria:**
@@ -235,10 +235,10 @@ Then I see an inline error message "This match just filled up — try another on
 
 | Story ID | Summary | Points | Assignee | AI Tool | Status |
 |----------|---------|--------|----------|---------|--------|
-| S1-01 | User signup and login | 3 | Davit Karoiani | Google AI Studio | Not started |
-| S1-02 | Match list home screen | 3 | Mariam Tskhomelidze | Google Stitch | Not started |
-| S1-03 | Match detail view | 2 | Mariam Pirtskhalava | Google Stitch | Not started |
-| S1-04 | Join match + confirmation | 2 | Levan Kovziridze | Claude Code | Not started |
+| S1-01 | User signup and login | 3 | Davit Karoiani | Claude Code | Done |
+| S1-02 | Match list home screen | 3 | Mariam Tskhomelidze | Claude Code | Done |
+| S1-03 | Match detail view | 2 | Mariam Pirtskhalava | Claude Code | Done |
+| S1-04 | Join match + confirmation | 2 | Levan Kovziridze | Claude Code | Done |
 | **Total** | | **10** | | | |
 
 **Capacity check:** 10 points committed out of approximately 18 maximum (56% — within the 60% target)
@@ -285,6 +285,7 @@ Reviewer: [Name]
 | Date | Changes | Author |
 |------|---------|--------|
 | 16 April 2026 | Sprint 1 plan created | Davit Karoiani |
+| 14 May 2026 | Sprint 1 statuses updated — all stories Done | Davit Karoiani |
 
 ---
 

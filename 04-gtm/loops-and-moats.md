@@ -1,7 +1,7 @@
 # Loops and Moats Narrative
 
 **Team:** TheMergeConflicters
-**Product:** KIU Sports Tracker
+**Product:** CampusSport
 **Document version:** 1.0
 **Last updated:** 13 May 2026
 
@@ -161,7 +161,7 @@ Two moats we are actively building:
 
 ## 5. Summary Statement
 
-KIU Sports Tracker acquires users through three zero-to-low-cost channels: direct organiser outreach (which seeds match supply), sports group chat posting (which reaches the already-captive player audience), and QR code posters at KIU facilities (which captures high-intent users at the point of need). Our blended CAC is $0.64 against an LTV proxy of $21.38 — a 33x ratio that reflects the near-zero cost of organic acquisition at a single university. Our K-factor is currently 0.135 (informal link sharing), rising to an estimated 0.225 when the Sprint 3 in-product share feature ships. We have local two-sided network effects: the product becomes self-sustaining at 5 active organisers and 40 active players at KIU. Our riskiest assumption is sustained organiser adoption beyond the initial founder-connected cohort — we will track weekly active organisers directly in Sprint 2 and act immediately on any churn signal.
+CampusSport acquires users through three zero-to-low-cost channels: direct organiser outreach (which seeds match supply), sports group chat posting (which reaches the already-captive player audience), and QR code posters at KIU facilities (which captures high-intent users at the point of need). Our blended CAC is $0.64 against an LTV proxy of $21.38 — a 33x ratio that reflects the near-zero cost of organic acquisition at a single university. Our K-factor is currently 0.135 (informal link sharing), rising to an estimated 0.225 when the Sprint 3 in-product share feature ships. We have local two-sided network effects: the product becomes self-sustaining at 5 active organisers and 40 active players at KIU. Our riskiest assumption is sustained organiser adoption beyond the initial founder-connected cohort — we will track weekly active organisers directly in Sprint 2 and act immediately on any churn signal.
 
 ---
 

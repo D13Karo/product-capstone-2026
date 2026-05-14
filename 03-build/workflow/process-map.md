@@ -1,7 +1,7 @@
 # Team Development Process Map
 
 **Team:** TheMergeConflicters  
-**Product:** KIU Sports Tracker  
+**Product:** CampusSport  
 **Last Updated:** 16 April 2026  
 **Version:** 1.0
 
