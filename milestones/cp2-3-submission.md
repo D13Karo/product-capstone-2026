@@ -54,8 +54,8 @@ Conducted by Mariam Pirtskhalava, 30 April – 2 May 2026. Five KIU students out
 |---|-------------|------|---------|-------------|
 | 1 | Nika, 2nd-year CS | Find a football match | Sport filter not visible on first load | Moved filter row above match list, pinned on scroll |
 | 2 | Sopo, 3rd-year Engineering | Join a basketball match | 'Max players' read as current count | Relabelled to 'X spots left of Y' format |
-| 3 | Giorgi, 2nd-year IT | Verify spot after joining | Join CTA tapped expecting a modal — left before confirmation | Added loading indicator and screen transition animation |
-| 4 | Tamta, 1st-year Business | Check spots remaining | Spots badge blended into card background in dark mode | Increased contrast ratio, added border outline |
+| 3 | Giorgi, 2nd-year CS | Verify spot after joining | Join CTA tapped expecting a modal — left before confirmation | Added loading indicator and screen transition animation |
+| 4 | Tamta, 1st-year Management | Check spots remaining | Spots badge blended into card background in dark mode | Increased contrast ratio, added border outline |
 | 5 | Beka, 4th-year Math | Navigate back after joining | 'Back to matches' button missed — used OS nav bar instead | Enlarged button, added arrow icon, repositioned above fold |
 
 All five findings resulted in a design change before the Sprint 1 codebase was built.
