@@ -18,7 +18,7 @@ KIU students who participate in informal peer-organized sports events consistent
 
 ## The Product
 
-**CampusSport** — a platform that connects university students to informal sports matches on campus. Students sign up with their university email, see only their university's matches, and get notified when match times or locations change.
+**UniSport** — Live at https://unisport-412.pages.dev — a platform that connects university students to informal sports matches on campus. Students sign up with their university email, see only their university's matches, and get notified when match times or locations change.
 
 | Repo | Description |
 |---|---|
