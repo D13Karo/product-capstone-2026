@@ -1,213 +1,66 @@
-# UniSport Pitch Script — 7 minutes, 4 speakers
+# UniSport Pitch — relay order, each speaks once
 
-**For:** Demo Day, 11 June 2026
-**Target runtime:** 6:30 (with ≤30s buffer to the 7:00 cap)
-
-> **Speakers — recommended rotation:**
-> - **D** = Davit (PO) — opens & closes, business slides
-> - **MP** = Mariam Pirtskhalava — discovery & competition
-> - **MT** = Mariam Tskhomelidze — analytics & growth
-> - **L** = Levan — the live demo
->
-> Swap if someone is uncomfortable with their slot. Davit-heavy by design (PO leads the pitch).
->
-> *(Stage directions in italics. Beats are pauses. Don't skip them.)*
+**Demo runs on PC** (two browser windows: player + organizer). Improvised delivery — these are the talking points, not a word-for-word lock.
 
 ---
 
-## Slide 1 — Problem [DAVIT, 0:00–0:40]
+## 1. DAVIT — Problem + Solution
 
-**[D walks to the front, holds one beat of silence, makes eye contact, then begins.]**
+Right now, somewhere on KIU campus, four students are walking to a volleyball match. They don't know it yet, but it was cancelled an hour ago. The cancellation is sitting in a Messenger group, buried under forty unrelated messages, and nobody saw it.
 
-> Right now, somewhere on KIU campus, four students are walking to a volleyball match. They don't know it yet — but it was cancelled an hour ago. The update is sitting in a Messenger group, buried under forty unrelated messages.
->
-> We interviewed ten KIU students who play informal sports. Every single one — ten out of ten — told us the same thing: they cannot trust the schedule. Seven of them missed at least one game last semester. Average pain: four out of five. Two campus sports groups have already completely dissolved — not from lack of interest, from logistics fatigue.
->
-> One of our interviewees, Giorgi, said it best:
->
-> *"I muted the group because it was too noisy. Then I missed the time change. You can't win either way."*
+This isn't a rare story. We interviewed ten KIU students who play informal sports, and all ten told us the same thing: they cannot trust the schedule. Seven of them missed at least one game last semester because an update got lost in a group chat. The average pain they described was four out of five. Two campus sports groups we know of have already completely fallen apart — not because people stopped caring, but because the coordination kept failing. Giorgi put it perfectly: "I muted the group because it was too noisy. Then I missed the time change. You can't win either way."
 
-**[Beat — 2 seconds.]**
+That's the problem we're solving. UniSport replaces all of that with one screen. The organizer posts a match once — sport, time, place, player limit — and every registered player at their university gets it instantly. When anything changes, the notification goes out automatically. No reposting across three apps. No checking five chats before you leave the house. One source of truth, one push, and you always know where to be.
+
+Levan will show you how it works.
 
 ---
 
-## Slide 2 — Solution [DAVIT, 0:40–1:05]
+## 2. LEVAN — Live Demo (PC, two browser windows)
 
-> UniSport replaces this with one screen. The organizer posts a match once — sport, time, place, player limit. Every registered KIU player gets a push notification. When anything changes — time, venue, cancellation — the notification fires automatically.
->
-> No re-announcement cycle. No three-app check. One source. One push. One truth.
+This is the real product, live right now at unisport-412.pages.dev. On the left I'm signed in as a regular KIU student, on the right I'm the organizer of a match.
 
-**[Pass to Mariam P.]**
+As a student, this is my feed. Only matches from my university — no spam, no chat, just games I can join. I'll tap this football match. I can see the sport, the time, the venue, and that five of ten spots are filled. I tap join, and I'm in — now it's six of ten.
 
----
+Now watch the organizer side. Say the weather changed and I move the game from six to seven PM. I change one field, I save. And without me doing anything else, without reposting anywhere — every player who joined just got a notification with the new time. That's the whole product. The change reached everyone the moment it happened.
 
-## Slide 3 — Why Now [MARIAM P., 1:05–1:35]
-
-> Two things changed in the last two years. Expo Push Service went free for cross-platform mobile push in early 2024 — before that, building this required paid services. The infrastructure didn't exist at this cost two years ago.
->
-> In parallel, Facebook Groups algorithmically deprioritized group posts since 2023. The "official" announcement channel became measurably less reliable.
->
-> The gap finally opened. We're filling it.
-
-**[Pass back to Davit.]**
+And every action you just saw is tracked in PostHog, which is how we measure whether people are getting value. Mariam will tell you why now is the moment for this.
 
 ---
 
-## Slide 4 — Market [DAVIT, 1:35–2:05]
+## 3. MARIAM P. — Why Now + Market + Competition
 
-> Bottom-up. Five hundred active KIU players at two dollars a month organizer tier gives us twelve thousand a year at KIU alone. Adding Free Uni, ISU, and TSU brings us to seventy thousand.
->
-> The Georgian university market is eight hundred forty thousand a year. The European TAM — fifty million students playing informal sport weekly — is one point two billion.
->
-> Numbers we built ourselves, not numbers from a report.
+Two things made this possible only recently. First, free push notifications across phones became available to small teams in early 2024 — before that, building this cost real money. Second, Facebook Groups quietly buried organic posts over the last couple of years, so the channel everyone used as their official announcement board became unreliable exactly when people needed it. The gap opened, and we're filling it.
 
-**[Pass to Levan for the live demo.]**
+And it's a real market. Five hundred active players at KIU is twelve thousand dollars a year. Expand to Free Uni, ISU, and TSU and that becomes seventy thousand. Across all Georgian universities it's over eight hundred thousand, and the European student market is more than a billion. We built those numbers from the ground up.
+
+People ask, isn't this just another chat app? No. Messenger, WhatsApp, Facebook were never built for time-sensitive coordination — they treat a cancellation the same as a meme. Discord is closer, but it makes the organizer run a whole server, which nobody wants. We're honest that we score low on existing adoption — we're new. But on what actually matters for this problem, we win. And our real protection is switching cost: once an organizer builds their roster and match history in UniSport, leaving means rebuilding it all. Cotne proved this — he built a Telegram bot that worked perfectly, and it still failed because the organizer wouldn't switch platforms. That same stickiness protects us once organizers are in.
 
 ---
 
-## Slide 5 — Product + LIVE DEMO [LEVAN, 2:05–3:35]
+## 4. MARIAM T. — Traction + Business + Growth + Ask
 
-**[L rotates the demo device toward the audience.]**
+Here's where we are. We launched four weeks ago at a single university, with zero marketing spend, and we already have around eighteen real signups. Before we'd even built the product, our smoke test pulled real signups straight from KIU sports group chats — that's the demand signal that told us this was worth building. And underneath all of it, ten interviews at an average pain of four out of five. We're early, but every number here is real and every one points the same direction.
 
-> This is the live product, at uni-sport-four-one-two dot pages dot dev. I'm signed in as a KIU student.
+The business is simple. Free for players, always. Organizers pay two dollars a month for the features that save them an hour a week — recurring schedules, templates, history. Cost to acquire a user is sixty-four cents, lifetime value is twenty-one dollars, that's thirty-three to one — and even if we're wrong by half, still sixteen to one.
 
-**[Step 1 — match list visible]**
-> Only KIU matches. No spam, no chat.
+The growth model is the best part. One organizer brings their whole group — about twenty players. So we go straight to organizers, one Messenger message at a time, sixty cents each, and eighty percent of their players follow them in. Twenty-five organizers across four universities gets us to five hundred users for three hundred dollars and twelve weeks of work.
 
-**[Step 2 — tap a match]**
-> Sport, time, venue, who's in. Currently five of ten.
+So here's our ask. We're raising twenty-five thousand at a two hundred thousand pre-money valuation — eleven percent. Twelve thousand to engineering, eight thousand to four-university expansion, five thousand to compliance. By March 2027 we'll have five hundred active users, twenty-five paying organizers, and a signed partnership with KIU's sports office.
 
-**[Step 3 — tap Join]**
-> One tap. "You're in." Quorum just moved to six of ten.
-
-**[Step 4 — switch to second device, organizer view]**
-> Now I'm the organizer. Same match. Weather changed. I move the time from six to seven PM. One field. Save.
-
-**[Step 5 — switch back to player device, wait for push notification]**
-> And without me doing anything —
-
-**[Push notification appears, hold for 2 seconds]**
-
-> — every player just got the update. New time. Same match. No re-announcement.
-
-**[Step 6 — close the demo]**
-> Every action you just saw is logged in PostHog. That's how we measure our North Star Metric — matches joined per active user per week.
-
-**[Pass to Mariam T.]**
-
-> ⚠️ **Test this end-to-end on both devices BEFORE you go in.** If push doesn't fire within 5 seconds, the demo fails. Backup plan: pre-recorded screen capture, played in silence while Levan narrates the same script over it.
+Because right now, somewhere on this campus, four students are still walking to a game that was cancelled an hour ago. Help us make that the last time. Thank you — we're happy to take your questions.
 
 ---
 
-## Slide 6 — Traction [MARIAM T., 3:35–4:05]
+## Q&A — anyone grabs it
 
-> Real numbers from our PostHog dashboard, pulled this morning.
-
-**[Read the actual numbers you pulled — see posthog-howto.md.]**
-
-> [N] signups since launch on May seventh.
-> [X] of them have fired the activation event — joining a match.
-> That's a [%] activation rate in our first thirty-three days at one university.
->
-> Our smoke test in May produced [Y] signups from real KIU sports group chats before the product shipped. That's the signal that confirmed demand.
-
-**[Pass back to Davit.]**
-
-> ⚠️ **If your real numbers are small, say the real numbers.** The rubric explicitly rewards honesty here.
+- **Just another chat?** Push-only, no chat. Adding chat is what broke everything else.
+- **Moat?** Switching costs. Cotne's bot proves organizers don't move once settled.
+- **Why $2?** Mamuka literally said "I'd switch immediately."
+- **After KIU?** Same playbook — Free Uni / ISU / TSU.
+- **Why not Discord?** The server setup is exactly the work we remove.
 
 ---
 
-## Slide 7 — Business Model [DAVIT, 4:05–4:35]
-
-> Free for players, always. The premium tier is the organizer — two dollars a month for recurring schedules, match templates, participant history.
->
-> Mamuka, in interview five, told us he'd switch immediately for auto-reminders.
->
-> Our blended CAC is sixty-four cents. LTV is twenty-one dollars on the conservative value proxy. The ratio is thirty-three to one. We stress-tested it — halve the lifetime, still sixteen to one.
-
-**[Pass to Mariam T.]**
-
----
-
-## Slide 8 — Go-to-Market [MARIAM T., 4:35–5:10]
-
-> One organizer brings twenty players. That's the leverage.
->
-> We go directly to organizers — Messenger DM, sixty cents CAC, eighty percent of their player group follows them in. Twenty-five organizers across KIU, Free Uni, ISU, and TSU gets us to five hundred users for three hundred dollars in team time. Twelve weeks.
->
-> Group chats and QR posters at the football pitch are our supporting channels — both at sub-dollar CAC.
-
-**[Pass to Mariam P.]**
-
----
-
-## Slide 9 — Competition [MARIAM P., 5:10–5:40]
-
-> Every general-purpose chat app fills this gap by default — and that's exactly why the gap exists. Messenger, Facebook, WhatsApp were never designed for time-sensitive coordination. Discord is structurally closer, but the organizer setup cost kills adoption.
->
-> We score one on existing user adoption. That's honest. We score five on the four dimensions that actually matter for this problem.
->
-> Our moat is switching costs. Once an organizer has built a roster and a match history in UniSport, recreating it is real work. Cotne in interview ten proved this against us — his Telegram bot failed because the organizer wouldn't migrate from Messenger. Once we have the organizer, the same mechanic protects us.
-
-**[Pass back to Davit for the close.]**
-
----
-
-## Slide 10 — Ask + Close [DAVIT, 5:40–6:30]
-
-> We're raising twenty-five thousand at two hundred thousand pre-money. Eleven percent dilution.
->
-> Twelve thousand goes to engineering for six months — Levan and I keep shipping, we go native on iOS and Android. Eight thousand goes to four-university expansion — organizer outreach, QR posters, the playbook we just described. Five thousand goes to GDPR compliance and legal — formal registration with the Georgian PDP Service.
->
-> By March 2027, we will have five hundred active users across four Tbilisi universities, twenty-five paying organizers at six hundred a month MRR, and a signed MOU with KIU Sports and Wellness.
-
-**[Beat. Eye contact across the panel.]**
-
-> Because right now, somewhere on KIU campus, four students are still walking to a cancelled volleyball game.
-
-**[Beat.]**
-
-> Help us make that the last time.
-
-**[Beat.]**
-
-> Thank you. We're happy to take your questions.
-
----
-
-## Speaker time distribution
-
-| Speaker | Slides | Total time |
-|---|---|---|
-| Davit | 1, 2, 4, 7, 10 | ~2:30 |
-| Mariam P. | 3, 9 | ~1:00 |
-| Mariam T. | 6, 8 | ~1:05 |
-| Levan | 5 + demo | ~1:30 |
-| **Total** | | **~6:05** + 25s buffer = **~6:30** |
-
-## Q&A — top 5 anticipated questions with short answers
-
-1. **"Why won't this just become another chat people ignore?"**
-   → Push-only, no in-app chat, single canonical channel. Architectural decision, not a feature flag. Every workaround in our research that added a chat channel made fragmentation worse.
-
-2. **"What's the moat?"**
-   → Switching costs at the organizer layer. Once an organizer has built a roster + match history in UniSport, recreating it is real work. Cotne's failed Telegram bot proves the mechanic works against incumbents — we expect it to work for us once organizers adopt.
-
-3. **"Why $2/month — what's the willingness-to-pay evidence?"**
-   → Mamuka explicitly: *"If auto-reminders existed, I would switch immediately."* Validating the $2 number in Phase 2 with 5 paid pilot organizers post-Demo-Day.
-
-4. **"What happens after KIU?"**
-   → Same playbook at Free Uni, ISU, TSU — confirmed in our roadmap. The organizer-outreach channel is geography-independent.
-
-5. **"Why not just use Discord?"**
-   → Discord requires the organizer to set up and moderate a server — that's exactly the work we eliminate. Zero of ten interviewees used Discord for informal sports coordination.
-
-## Final pre-pitch checklist
-
-- [ ] All four speakers have read their lines aloud once
-- [ ] Slide 6 numbers pulled from PostHog and inserted
-- [ ] Live URL https://unisport-412.pages.dev works in the venue
-- [ ] Push notification tested end-to-end (≤5s delay)
-- [ ] Two phones charged ≥80%, on do-not-disturb OFF
-- [ ] Backup pre-recorded demo screen capture ready (in case live demo fails)
-- [ ] One full run-through done, timed under 7:00
+⚠️ **Levan: open both browser windows and sign in before you start.** Test the push once.
+✅ Traction number (~18 signups) is real, from the Django admin. Honest + small beats fake + big.
