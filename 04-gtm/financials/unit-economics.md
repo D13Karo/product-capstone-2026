@@ -29,7 +29,7 @@ Additionally, from our interviews, an estimated 0.5 matches per month per user a
 
 Total value proxy: $1.59 + $0.64 = **$2.23**, rounded to **$2.25**.
 
-We acknowledge this is a soft estimate based on interview evidence, not measured user behaviour. We will revisit once we have PostHog session data showing actual match_joined frequency per user.
+We acknowledge this is a soft estimate based on interview evidence, not measured user behaviour. We will revisit once we have usage data from the Django admin showing actual match-join frequency per user.
 
 **Gross Margin:** 95%
 
@@ -38,13 +38,13 @@ Calculation:
 - Cost to serve per user per month: $0.11
   - Vercel hosting (free hobby tier for MVP scale): $0
   - Supabase Postgres (free tier, up to 500MB): $0
-  - PostHog Cloud (free tier, up to 1M events/month): $0
+  - Analytics tooling: $0 (usage read from the Django admin over our own DB — no third-party analytics cost)
   - Allocated infrastructure and tooling cost per user at scale: $0.11 (estimated)
 - Gross margin = ($2.25 − $0.11) / $2.25 = 95.1% ≈ **95%**
 
 **Average Lifetime:** 10 months
 
-Source: We have no retention data yet. Estimate based on the KIU academic calendar: a student who adopts the product mid-semester will use it through two full semesters of active sports participation (approximately 10 months of the academic year, excluding summer). We treat this as the upper conservative estimate — a student who loses interest after one semester contributes 5 months. The 10-month estimate reflects a user who becomes a habit adopter. This will be replaced with a real retention curve once we have 12 weeks of cohort data from PostHog.
+Source: We have no retention data yet. Estimate based on the KIU academic calendar: a student who adopts the product mid-semester will use it through two full semesters of active sports participation (approximately 10 months of the academic year, excluding summer). We treat this as the upper conservative estimate — a student who loses interest after one semester contributes 5 months. The 10-month estimate reflects a user who becomes a habit adopter. This will be replaced with a real retention curve once we have 12 weeks of cohort data, counted from our own database via the Django admin.
 
 ### Calculation
 
@@ -194,7 +194,7 @@ Payback periods under 1 month mean we recover acquisition cost almost immediatel
 | Student time value (hourly) | $0.85 | Georgian regional minimum wage equivalent | Medium |
 | Disrupted matches per user per month | 0.5 | Interview #03 (Giorgi) — missed game due to unread update; estimated 1 per 2 months | Low |
 | Value proxy per user per month | $2.25 | Internal calculation from above | Low |
-| Gross margin | 95% | Free-tier infrastructure confirmed: Vercel, Supabase, PostHog all within free limits at MVP scale | High |
+| Gross margin | 95% | Free-tier infrastructure confirmed within limits at MVP scale; no third-party analytics cost (usage read from the Django admin) | High |
 | Average lifetime | 10 months | Academic calendar estimate; no retention data yet | Low |
 | Group chat signup conversion | 20–25% | Own smoke test target + Mailchimp 2024 community link benchmark | Low |
 | Organiser player group size | 15–30 per organiser | Interview #05 (Mamuka): manages ~25 regular players | Medium |
@@ -214,7 +214,7 @@ Payback periods under 1 month mean we recover acquisition cost almost immediatel
 
 **Why this is the riskiest assumption:** Most students may use the product for one sports season (one semester) and stop when their playing group stops coordinating actively, or when the academic year ends. We have no evidence about whether a student returns to the app the following year. A 5-month average lifetime is entirely plausible and would halve our LTV estimate.
 
-**What we will do to validate this assumption in Sprint 2:** Begin tracking D30 retention from the first sign-up cohort in May. PostHog `user_session_started` events will give us a weekly active user curve. At week 8, run a cohort analysis to see how many of the Sprint 1 cohort are still returning.
+**What we will do to validate this assumption in Sprint 2:** Begin tracking D30 retention from the first sign-up cohort in May. Reading `last_login` / session records in the Django admin will give us a weekly active user curve. At week 8, run a cohort analysis to see how many of the Sprint 1 cohort are still returning.
 
 ---
 
@@ -224,7 +224,7 @@ Payback periods under 1 month mean we recover acquisition cost almost immediatel
 |--------|-----------|------------|-----|
 | Group chat signup conversion rate | 20–25% (smoke test target) | May 21 | Carrd + Google Form experiment data after 8 days live |
 | Organiser player group size | 15–30 per organiser (interview estimate) | June 4 | Direct count from first 5 organiser onboardings |
-| Average lifetime | 10 months (calendar estimate) | End of Sprint 3 | PostHog D30 and D60 retention from May cohort |
+| Average lifetime | 10 months (calendar estimate) | End of Sprint 3 | D30 and D60 retention from the May cohort, counted in the Django admin |
 | Value proxy ($2.25/month) | Internal estimate | If monetisation is introduced | Fine as proxy for free product model |
 | Poster scan rate | Estimate | May 27 | One week of UTM data after posters are installed |
 

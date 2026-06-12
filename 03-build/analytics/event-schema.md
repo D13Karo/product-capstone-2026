@@ -4,7 +4,7 @@
 **Product:** CampusSport  
 **Date:** 09 April 2026  
 **Version:** 1.0  
-**Status:** Blueprint (instrumentation code written in Lab 6)
+**Status:** Defines the usage metrics we track. We trialled PostHog to capture these as events but switched to reading the same signals directly from our own database via the Django admin (see `04-gtm/traction/usage-log.md`). Each "event" below is the action we count; the count is read in the admin, not from a third-party analytics tool.
 
 ---
 
@@ -230,9 +230,9 @@ Confirm that no event in this schema captures PII:
 
 ---
 
-## Instrumentation Notes for Lab 6
+## Where each metric comes from
 
-This is the blueprint only. In Lab 6, the actual code to fire these events will be written in the Google AI Studio app.
+Each metric is derived from an action the app already persists to our own database. We read the resulting counts in the Django admin (we trialled PostHog event instrumentation but switched). The table below maps each action to where it happens in the code.
 
 | Event Name | Where in Code | Frontend or Backend |
 |-----------|--------------|-------------------|
@@ -246,16 +246,17 @@ This is the blueprint only. In Lab 6, the actual code to fire these events will 
 
 ---
 
-## Analytics Tool Selection
+## Analytics Approach
+
+We evaluated the product-analytics tools below during the build:
 
 - [ ] Mixpanel (best for funnel analysis)
 - [ ] Amplitude (best for retention curves)
-- [x] PostHog (best for self-hosted, privacy-conscious products)
+- [ ] PostHog (trialled — self-hostable, privacy-conscious)
 - [ ] Google Analytics 4 (best for web-only MVPs)
 
-**Our choice:** PostHog  
-**Reason:** Open-source, self-hostable, generous free tier, and privacy-first — appropriate for a student MVP handling university-community data.  
-**Free tier limit:** 1M events per month on PostHog Cloud
+**Our choice:** none of the above. We trialled PostHog but moved to reading usage directly from the **Django admin** over our own PostgreSQL database.  
+**Reason:** at our scale (one campus, weekly cadence) the admin gives us every count we need — signups, matches, joins, recent active users — without sending any user data to a third party. This keeps all usage data in our own backend, the cleaner privacy posture. See `04-gtm/traction/usage-log.md` for how each number is pulled.
 
 ---
 

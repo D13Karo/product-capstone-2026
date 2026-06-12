@@ -4,6 +4,8 @@
 **Sprint:** Sprint 1 (24 April – 13 May 2026)
 **Format:** Async daily standup — What I did / What I'm doing / Blockers
 
+> **Note (added during Checkpoint-4 prep):** the entries below record that we set up and tested **PostHog** during Sprint 1–2. That history is accurate — we did trial PostHog. We later moved to reading usage directly from the **Django admin** over our own database (simpler at our scale, no third-party processor). Current usage tracking is documented in `04-gtm/traction/usage-log.md`. The PostHog mentions below are preserved as an accurate record of what we did at the time.
+
 ---
 
 ## Week 1 — 24–27 April 2026

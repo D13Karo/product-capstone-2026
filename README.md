@@ -46,7 +46,7 @@ KIU students who participate in informal peer-organized sports events consistent
 
 ## Current Phase
 
-**Sprint 2** (May 8 – May 21) — Organiser match creation, push notifications, PostHog analytics. Checkpoint 3 due May 21.
+**Sprint 2** (May 8 – May 21) — Organiser match creation, push notifications, usage tracking via the Django admin. Checkpoint 3 due May 21.
 
 ---
 
@@ -80,7 +80,7 @@ milestones/            Weekly milestone tracking
 | Database | PostgreSQL (managed: Railway/Render) | tech-stack.md |
 | Push notifications | Expo Push Service → APNs/FCM | tech-stack.md |
 | Email (transactional) | SendGrid HTTPS API | tech-stack.md |
-| Analytics | PostHog Cloud (1M events/month free tier) | `03-build/analytics/event-schema.md` |
+| Analytics | Django admin over our own PostgreSQL DB (PostHog trialled, dropped) | `04-gtm/traction/usage-log.md` |
 | Frontend host | Cloudflare Pages | live URL above |
 | Backend host | Railway / Render | tech-stack.md |
 

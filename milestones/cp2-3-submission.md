@@ -7,6 +7,8 @@
 **Deadline:** Thursday 21 May 2026 at 23:59  
 **Tag:** `cp2-3-submission`
 
+> **Update (post-Checkpoint-3, added during Checkpoint-4 prep):** during Sprint 2 we trialled **PostHog** (set up and confirmed events firing in the web build, as `docs/standup-log.md` records). We subsequently moved to reading usage directly from the **Django admin** over our own database — simpler at our scale and with no third-party analytics processor. PostHog references in this submission reflect that Sprint-2 trial; **current** usage tracking is via the Django admin (see `04-gtm/traction/usage-log.md`).
+
 | Name | Role | GitHub |
 |------|------|--------|
 | Davit Karoiani | Product Owner | @D13Karo |

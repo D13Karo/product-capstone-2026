@@ -1,0 +1,126 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>UniSport — One Pager</title>
+<style>
+  @page { size: A4; margin: 11mm; }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  :root{
+    --green:#0E5A3A; --green-deep:#0B4B30; --mint:#1FB67A; --mint-soft:#E8F7EF;
+    --ink:#1F2937; --gray:#6B7280; --line:#E3E8E5; --yellow:#FBEEC2;
+  }
+  body{ font-family:"Segoe UI",Arial,Helvetica,sans-serif; color:var(--ink); font-size:10.3pt; line-height:1.4; }
+  .wrap{ width:100%; }
+
+  /* Header */
+  header{ text-align:center; padding-bottom:10px; border-bottom:3px solid var(--mint); margin-bottom:12px; }
+  .brand{ font-size:34pt; font-weight:800; color:var(--green); letter-spacing:-1px; line-height:1; }
+  .tagline{ font-size:11pt; font-weight:700; color:var(--mint); text-transform:uppercase; letter-spacing:3px; margin-top:6px; }
+  .url{ display:inline-block; margin-top:9px; background:var(--green); color:#fff; font-weight:700; font-size:11.5pt; padding:5px 16px; border-radius:20px; letter-spacing:.3px; }
+
+  /* Layout */
+  .grid2{ display:grid; grid-template-columns:1fr 1fr; gap:12px; margin-bottom:11px; }
+  .sec{ }
+  .label{ font-size:8pt; font-weight:800; color:var(--green); text-transform:uppercase; letter-spacing:1.5px;
+          border-left:4px solid var(--mint); padding-left:7px; margin-bottom:5px; }
+  p{ font-size:10.3pt; }
+
+  table{ width:100%; border-collapse:collapse; margin-top:3px; font-size:9.6pt; }
+  th,td{ text-align:left; padding:3px 6px; border-bottom:1px solid var(--line); }
+  th{ color:var(--gray); font-weight:700; font-size:8.2pt; text-transform:uppercase; letter-spacing:.5px; }
+  td.v{ font-weight:800; color:var(--green); }
+
+  .pill{ display:inline-block; background:var(--mint-soft); color:var(--green-deep); font-weight:800;
+         border-radius:6px; padding:2px 8px; font-size:9.5pt; }
+
+  /* Market band */
+  .market{ background:var(--mint-soft); border-radius:8px; padding:9px 12px; margin-bottom:11px; }
+  .market .flow{ font-weight:700; color:var(--green-deep); font-size:10pt; }
+  .market small{ color:var(--gray); }
+
+  /* Team */
+  .team{ display:grid; grid-template-columns:1fr 1fr; gap:6px 16px; margin-top:3px; }
+  .member{ font-size:9.5pt; }
+  .member .nm{ font-weight:800; color:var(--green); }
+  .member .ro{ color:var(--mint); font-weight:700; font-size:8.4pt; text-transform:uppercase; letter-spacing:.5px; }
+  .member .cr{ color:var(--ink); }
+
+  /* Ask */
+  .ask{ background:var(--yellow); border-radius:8px; padding:9px 12px; margin-bottom:9px; }
+  .ask .big{ font-weight:800; color:var(--green-deep); font-size:11pt; }
+
+  footer{ text-align:center; border-top:1px solid var(--line); padding-top:7px; color:var(--gray); font-size:9.2pt; }
+  footer b{ color:var(--green); }
+  .note{ font-size:7.6pt; color:var(--gray); font-style:italic; margin-top:2px; }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <header>
+    <div class="brand">UniSport</div>
+    <div class="tagline">Your University. Your Matches.</div>
+    <div class="url">unisport-412.pages.dev</div>
+  </header>
+
+  <div class="grid2">
+    <div class="sec">
+      <div class="label">The Problem</div>
+      <p>KIU students who play informal campus sports keep missing games — schedule changes get buried in noisy group chats across Messenger, Facebook and WhatsApp. 7 of 10 students we interviewed missed a match last semester; two campus sports groups collapsed from coordination fatigue.</p>
+    </div>
+    <div class="sec">
+      <div class="label">The Solution</div>
+      <p>UniSport gives each campus one verified feed: an organiser posts a match once, every player at that university sees it, and any change pushes to everyone automatically — no reposting, no buried updates.</p>
+    </div>
+  </div>
+
+  <div class="grid2">
+    <div class="sec">
+      <div class="label">Traction</div>
+      <table>
+        <tr><th>Metric</th><th>Value</th><th>As of</th></tr>
+        <tr><td>Signups (live product)</td><td class="v">≈ 18</td><td>11 Jun 2026</td></tr>
+        <tr><td>Matches joined</td><td class="v">[confirm]</td><td>11 Jun 2026</td></tr>
+        <tr><td>Smoke-test signups</td><td class="v">[confirm]</td><td>13–21 May</td></tr>
+      </table>
+      <div class="note">33 days · one campus · zero ad spend. Numbers read from the Django admin — confirm exact counts before printing.</div>
+    </div>
+    <div class="sec">
+      <div class="label">Business Model</div>
+      <p>Free for players. Organisers pay <span class="pill">₾5 / month</span> for automation — recurring schedules, templates, participant history.</p>
+      <table>
+        <tr><th>CAC</th><th>LTV</th><th>LTV : CAC</th><th>Payback</th></tr>
+        <tr><td class="v">₾1.70</td><td class="v">₾58</td><td class="v">33 : 1</td><td class="v">&lt; 1 mo</td></tr>
+      </table>
+    </div>
+  </div>
+
+  <div class="market">
+    <div class="label" style="border-color:var(--green)">Market — bottom-up</div>
+    <div class="flow">KIU launch core ₾2,000/yr&nbsp; →&nbsp; 4-campus cluster (TSU · SEU · KIU · BTU) ₾8,000–10,000&nbsp; →&nbsp; all Georgian universities ₾100,000–150,000</div>
+    <small>Basis: ~25 paying organisers per campus × ₾5/mo. European expansion potential €1M+.</small>
+  </div>
+
+  <div class="sec" style="margin-bottom:11px">
+    <div class="label">Team</div>
+    <div class="team">
+      <div class="member"><span class="nm">Davit Karoiani</span> · <span class="ro">Product Owner</span><br><span class="cr">Drove the LMS→sports pivot; built signup/auth and organiser match creation; owns the live deployment.</span></div>
+      <div class="member"><span class="nm">Mariam Pirtskhalava</span> · <span class="ro">Discovery Lead</span><br><span class="cr">Ran 10 customer interviews and synthesis; authored the problem statement and ICP.</span></div>
+      <div class="member"><span class="nm">Mariam Tskhomelidze</span> · <span class="ro">Scrum Master</span><br><span class="cr">Owns the sprint board; ran the smoke test; built the match feed and push notifications.</span></div>
+      <div class="member"><span class="nm">Levan Kovziridze</span> · <span class="ro">Test Lead</span><br><span class="cr">Built join-match + confirmation; owns usage tracking via the Django admin and AC verification.</span></div>
+    </div>
+  </div>
+
+  <div class="ask">
+    <div class="label" style="border-color:var(--green)">The Ask</div>
+    <span class="big">Seeking ₾67,000 expansion capital</span> — ₾32,000 engineering · ₾22,000 four-campus rollout · ₾13,000 compliance &amp; legal — to reach 4 universities and a formal KIU Sports &amp; Wellness partnership by March 2027.
+  </div>
+
+  <footer>
+    <b>unisport-412.pages.dev</b>&nbsp; · &nbsp;karoiani.davit@gmail.com&nbsp; · &nbsp;github.com/D13Karo/product-capstone-2026
+  </footer>
+
+</div>
+</body>
+</html>

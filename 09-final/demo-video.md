@@ -64,14 +64,14 @@
 
 ## Section 4: Proof (0:45 – 0:55) — one real number
 
-**Goal:** Show one number from your analytics that proves it works. Pull from PostHog. Don't round up. Don't project.
+**Goal:** Show one number from your analytics that proves it works. Pull from the Django admin (see `04-gtm/traction/usage-log.md`). Don't round up. Don't project.
 
 **Team to decide:**
 - Who is on camera saying the number: [name]
-- The number you'll cite — pull from PostHog **the same day you shoot**:
-  - Metric: [e.g. total `match_joined` events / WAU / signups since launch]
-  - Value: [PULL FROM POSTHOG]
-  - Source: PostHog, [date]
+- The number you'll cite — pull from the Django admin **the same day you shoot**:
+  - Metric: [e.g. total joins (`match_joined`) / active users / signups since launch]
+  - Value: [PULL FROM DJANGO ADMIN]
+  - Source: Django admin, [date]
 - The spoken line containing that number: [draft]
 
 **If the number is small (e.g. 12 users), say 12.** The rubric explicitly rewards honesty here.

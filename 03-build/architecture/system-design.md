@@ -17,14 +17,14 @@ a confirmation screen with their spot reserved.
 ```
 
 **Sprint 1 boundary:**
-- In scope: university email signup, login, match list, match detail, join match RSVP, confirmation screen, PostHog `match_joined` event, public web deployment
+- In scope: university email signup, login, match list, match detail, join match RSVP, confirmation screen, recorded `match_joined` action (RSVP persisted in our own DB), public web deployment
 - Out of scope: organiser match creation, push notifications, leave match, quorum visibility, share/invite links, sport-type filters, KIU SSO, Django backend (Sprint 2)
 
 ---
 
 ## 2. System Goal
 
-By Sprint 1 review, CampusSport must support one complete end-to-end user flow on a public URL. A new student must be able to sign up with a university email, browse seeded upcoming matches for their university, view match details, join a match, and see a confirmation screen. Sprint 1 ships with mock data — no backend persistence — to maximise delivery speed. The Django REST API is a Sprint 2 deliverable. Analytics fires `match_joined` via PostHog.
+By Sprint 1 review, CampusSport must support one complete end-to-end user flow on a public URL. A new student must be able to sign up with a university email, browse seeded upcoming matches for their university, view match details, join a match, and see a confirmation screen. Sprint 1 ships with mock data — no backend persistence — to maximise delivery speed. The Django REST API is a Sprint 2 deliverable. Usage is tracked by reading our own database via the Django admin (the `match_joined` action is a persisted RSVP).
 
 ---
 
@@ -36,7 +36,7 @@ By Sprint 1 review, CampusSport must support one complete end-to-end user flow o
 | University auth gate | Client | Validates university email domain on signup; filters matches by university domain | Davit | Custom domain validation in `constants/universities.ts` | Claude Code |
 | Theme system | Client | Dark/light mode toggle across all screens | Davit | ThemeContext + React context | Claude Code |
 | Mock data layer | Data (Sprint 1) | Provides seeded match data; replaced by Django API in Sprint 2 | Davit | `lib/mock-data.ts` (TypeScript constants) | No AI |
-| Analytics | Measurement | Records `match_joined`, `user_signup_completed`, `user_session_started` | Levan | PostHog Cloud (posthog-react-native) | No runtime AI |
+| Usage tracking | Measurement | Records signups, joins, sessions as rows in our own DB; counts read via Django admin | Levan | Django admin over our own PostgreSQL DB (PostHog trialled, dropped) | No runtime AI |
 | Django REST API | Backend (Sprint 2) | Manages users, matches, RSVPs with full persistence | Backend team | Django + Django REST Framework + PostgreSQL | Planned for Sprint 2 |
 
 ---
@@ -49,7 +49,7 @@ By Sprint 1 review, CampusSport must support one complete end-to-end user flow o
 | Match | Scheduled informal sports game with sport type, time, location, player limit, university domain | Seed data (Sprint 1); organiser flow via API (Sprint 2) | Match list, match detail, join validation | `lib/mock-data.ts` (Sprint 1); Django matches table (Sprint 2) |
 | RSVP | Record that a specific user has joined a specific match | Join match action | Match detail, confirmation screen | Local state (Sprint 1); Django rsvps table (Sprint 2) |
 | University | Domain-keyed record mapping email domain to university name, city, short name | `constants/universities.ts` | Signup validation, match list filter, header display | Static constant file |
-| Event | Product usage signal | Frontend on join action | PostHog dashboard | PostHog Cloud |
+| Usage record | Product usage signal (e.g. an RSVP, a signup) | App on the relevant action | Team via Django admin | Our own PostgreSQL database |
 
 ---
 
@@ -62,12 +62,12 @@ Join match flow — the core Sprint 1 activation path:
 3. If no session, student is redirected to the auth screen.
 4. Student enters university email — app validates domain in real time against `constants/universities.ts` and displays the detected university.
 5. Student submits email + password — `login()` stores user in `AuthContext` + `AsyncStorage`.
-6. `user_signup_completed` PostHog event fires.
+6. The signup is recorded in our own database (counted later via the Django admin).
 7. Student lands on the match list home screen — matches are filtered by the student's university domain from `lib/mock-data.ts`.
 8. Match cards render with sport icon (MaterialCommunityIcons vector icon), time, location, spots badge.
 9. Student taps a match card — match detail screen loads full match record.
 10. Student taps "Join Match" — app navigates to confirmation screen.
-11. `match_joined` PostHog event fires with `match_id`, `sport_type`, `spots_remaining_after_join`, `time_to_match_hours`.
+11. The join is persisted as an RSVP row (`match_id`, `sport_type`, `spots_remaining_after_join`, `time_to_match_hours`), counted later via the Django admin.
 12. Confirmation screen renders: "You're in!" with match name, sport type, start time.
 
 ---
@@ -78,7 +78,7 @@ Join match flow — the core Sprint 1 activation path:
 - **Data validated:** university email domain (client-side against known domains), password minimum length (8 chars)
 - **Data stored Sprint 1:** user session in AsyncStorage (email, name, university object)
 - **Data stored Sprint 2 (planned):** RSVP record, decremented spots count — via Django API
-- **Data that must never be stored:** raw passwords, PII in PostHog event properties
+- **Data that must never be stored:** raw passwords; no PII in usage records (users identified by system-generated ID only)
 
 ---
 
@@ -86,8 +86,7 @@ Join match flow — the core Sprint 1 activation path:
 
 | Service | Why it exists | Request direction | Risk | Fallback |
 |---------|---------------|-------------------|------|----------|
-| PostHog Cloud | Event tracking for NSM and analytics requirement | Client to PostHog | Misconfigured event property names | Cross-reference event-schema.md before instrumentation |
-| Django REST API (Sprint 2) | Persistent match and RSVP storage | Client to Django API on Railway/Render | API not ready for Sprint 1 | Sprint 1 uses mock data; Sprint 2 replaces mock-data.ts with real API calls |
+| Django REST API (Sprint 2) | Persistent match and RSVP storage; also the source of all usage counts (read via Django admin) | Client to Django API on Railway/Render | API not ready for Sprint 1 | Sprint 1 uses mock data; Sprint 2 replaces mock-data.ts with real API calls |
 
 ---
 
@@ -96,7 +95,7 @@ Join match flow — the core Sprint 1 activation path:
 - **Frontend:** React Native app exported as static web app via `npx expo export --platform web`, deployed on Netlify or Vercel
 - **Backend:** Django REST API — Sprint 2, to be hosted on Railway or Render
 - **Database:** PostgreSQL managed by Railway or Render — Sprint 2
-- **Analytics:** PostHog Cloud (free tier, 1M events/month)
+- **Analytics:** Django admin over our own PostgreSQL database (no third-party analytics tool)
 - **Auth:** Custom university email validation (Sprint 1); Django JWT auth (Sprint 2)
 - **Public URL:** See `README.md` for the live deployment link
 
@@ -121,8 +120,8 @@ No runtime AI feature in Sprint 1. AI tools are used exclusively in the build wo
 ## 10. Security, Privacy, and Reliability
 
 - **Email gate:** Only recognised university email domains can sign up — enforced client-side via domain validation; server-side enforcement planned for Sprint 2
-- **Sensitive data:** User email stored in AsyncStorage (device-local, not synced to server in Sprint 1); no PII enters PostHog events
-- **Failure mode if PostHog is unavailable:** App continues normally; events are silently dropped — acceptable for Sprint 1
+- **Sensitive data:** User email stored in AsyncStorage (device-local, not synced to server in Sprint 1); no PII in usage records (users identified by system-generated ID only)
+- **Usage tracking has no runtime dependency:** usage is read from our own database via the Django admin, so there is no external analytics service that can fail at runtime
 - **Sprint 1 reliability commitment:** Static web export has no server-side failure modes; mock data always loads
 
 ---
@@ -135,8 +134,8 @@ No runtime AI feature in Sprint 1. AI tools are used exclusively in the build wo
 2. **Risk:** Expo web export may not render correctly across all browsers
    - Mitigation: Test with Chrome, Safari, and Firefox before submission; fix any layout issues before tagging
 
-3. **Risk:** PostHog instrumentation not added before submission
-   - Owner: Levan; must be in place before `cp2-3-submission` tag
+3. **Risk:** Usage counts not readable from the Django admin before submission
+   - Owner: Levan; confirm signup/join counts load in the admin before the `cp2-3-submission` tag
 
 ---
 

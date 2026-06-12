@@ -9,7 +9,7 @@
 
 ## 1. Decision Summary
 
-Sprint 1 optimises for three things: delivery speed, cross-platform reach from one codebase, and demo reliability. React Native with Expo lets us ship a single codebase that runs as a mobile-first web app (via Expo's web export) and as a native app (if needed later), without maintaining a separate web framework. This is the correct choice for a university sports coordination app where students will primarily access the product on their phones. The backend (Django) is deferred to Sprint 2 — Sprint 1 ships with mock data to eliminate all API integration risk during the first sprint. PostHog analytics was committed in the event schema and is not re-evaluated here. No TBD entries remain.
+Sprint 1 optimises for three things: delivery speed, cross-platform reach from one codebase, and demo reliability. React Native with Expo lets us ship a single codebase that runs as a mobile-first web app (via Expo's web export) and as a native app (if needed later), without maintaining a separate web framework. This is the correct choice for a university sports coordination app where students will primarily access the product on their phones. The backend (Django) is deferred to Sprint 2 — Sprint 1 ships with mock data to eliminate all API integration risk during the first sprint. Usage analytics is read from the Django admin over our own database (we trialled PostHog but switched — see `03-build/analytics/event-schema.md`). No TBD entries remain.
 
 ---
 
@@ -25,7 +25,7 @@ Sprint 1 optimises for three things: delivery speed, cross-platform reach from o
 | University auth gate | Custom domain validation in `constants/universities.ts` | Zero dependencies; maps university email domains to university objects; enforces the core product promise at signup | Supabase Auth | Full auth service is Sprint 2 scope; client-side domain validation is sufficient for Sprint 1 demo | Davit |
 | Backend (Sprint 2) | Django + Django REST Framework | Team has prior Django experience; DRF generates well-structured REST APIs quickly; PostgreSQL is the natural fit for relational RSVP data | Express.js | Python familiarity advantage; DRF handles serialisation, validation, and auth with less boilerplate | Backend team |
 | Database (Sprint 2) | PostgreSQL (hosted on Railway or Render) | Relational model is the right fit for RSVP joins; both offer a free managed Postgres tier | MongoDB | Document model makes RSVP joins more complex; no benefit for this data model | Levan |
-| Analytics | PostHog Cloud | Committed in event-schema.md; open-source, 1M events/month free tier; posthog-react-native works on both web and native | Mixpanel | PostHog was already selected and documented; free tier is more generous | Levan |
+| Analytics | Django admin over our own PostgreSQL DB | Reads usage (signups, matches, joins, active users) straight from our backend; no third-party processor; cleanest privacy posture at our scale | PostHog (trialled), Mixpanel | PostHog was trialled then dropped — at one-campus scale the admin gives every count we need without sending data off-platform | Levan |
 | Icons | @expo/vector-icons (MaterialCommunityIcons) | Bundled with Expo SDK — zero installation; covers all required sport icons (soccer, basketball, volleyball, handball, tennis-ball, chess-king) and UI icons | Custom SVG (react-native-svg) | Requires a separate npm install not available on university network; MaterialCommunityIcons covers everything needed | Davit |
 | Hosting (frontend) | Netlify or Vercel (static web export) | `npx expo export --platform web` produces a static site deployable to either; free tier sufficient for demo scale | Expo Go (QR code only) | Not accessible via URL — cannot satisfy the rubric requirement | Davit |
 | Testing | Manual AC verification by PO | Sufficient for Sprint 1; each story AC verified before merge | Jest + React Testing Library | Setup overhead not justified in Sprint 1; deferred to Sprint 3 | Mariam P. |
@@ -49,7 +49,7 @@ No other AI tools are approved for Sprint 1. Any tool change requires a new entr
 - **Frontend public URL:** Expo web export deployed on Netlify or Vercel — see README for live link
 - **How to build:** `npx expo export --platform web` — outputs to `dist/` folder; drag-and-drop to Netlify or push via CLI
 - **Backend (Sprint 2):** Django API on Railway or Render; environment variables for database credentials stored in platform secrets
-- **Analytics:** PostHog Cloud; project key stored in `EXPO_PUBLIC_POSTHOG_KEY` environment variable
+- **Analytics:** Django admin over our own database (no third-party analytics tool; no analytics API key required)
 
 ---
 
@@ -82,7 +82,7 @@ No other AI tools are approved for Sprint 1. Any tool change requires a new entr
 - **Frontend:** React Native with Expo SDK 51, Expo Router, deployed as static web app via Expo web export
 - **Styling:** React Native StyleSheet; ThemeContext for dark/light mode; MaterialCommunityIcons for vector icons
 - **Data (Sprint 1):** Mock data in `lib/mock-data.ts`; swap to Django API in Sprint 2
-- **Analytics:** PostHog Cloud via posthog-react-native
+- **Analytics:** Django admin over our own PostgreSQL database (PostHog trialled, dropped)
 - **Backend (Sprint 2):** Django REST Framework + PostgreSQL on Railway
 - **Hosting:** Netlify or Vercel for frontend; Railway or Render for Django backend
 

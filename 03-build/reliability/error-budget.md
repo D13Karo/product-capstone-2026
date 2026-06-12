@@ -96,7 +96,7 @@ Record every incident that consumed error budget. If no incidents occurred, writ
 |----------|------|----------|--------------|----------------|-----------------|
 | No incidents this window. | — | — | — | — | — |
 
-**Reason there are no incidents recorded:** active monitoring (UptimeRobot, PostHog funnel, `push_metrics`) has not yet been instrumented as of the audit date. Action items 1–4 in `slo-sheet.md` close this gap by end of Sprint 4 (11 June 2026). The first window with real incident data will start the day after Demo Day.
+**Reason there are no incidents recorded:** active monitoring (UptimeRobot, admin/SQL activation counts, `push_metrics`) has not yet been instrumented as of the audit date. Action items 1–4 in `slo-sheet.md` close this gap by end of Sprint 4 (11 June 2026). The first window with real incident data will start the day after Demo Day.
 
 **Total budget consumed this window:**
 

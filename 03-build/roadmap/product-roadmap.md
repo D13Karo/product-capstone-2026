@@ -28,7 +28,7 @@ CampusSport is a lightweight, push-based sports coordination tool for KIU studen
 | Join match / RSVP with one tap | Sprint 1 | Interview #03 (Giorgi) — "Game moved one hour earlier — posted in chat — I didn't see it — team played without me"; fast RSVP prevents the hesitation that leads to missed joins |
 | Match creation flow for organisers | Sprint 2 | Interview #05 (Mamuka) — "Post on Facebook → repost in Messenger → DM core players. Three steps, every time"; one-post creation removes this |
 | Push notifications for match changes | Sprint 2 | Interview #01 (Khatia) — "The delay between posting and seeing can be hours. By then the window to respond is gone." |
-| PostHog event tracking (NSM instrumentation) | Sprint 2 | Required to measure NSM — match_joined per active user per week |
+| Usage tracking via Django admin (NSM measurement) | Sprint 2 | Required to measure NSM — match joins per active user per week |
 | Leave match / cancel RSVP | Sprint 2 | Interview #08 (Nana) — "Four people showed up to volleyball — needed 8 — had to cancel"; RSVP cancellation feeds quorum visibility |
 | Quorum visibility (RSVP count vs spots needed) | Sprint 3 | Interview #08 (Nana) — "I want a confirmation the game is happening before I leave home" |
 | Organiser cancel match with auto-notification | Sprint 3 | Interview #05 (Mamuka) — "When something changes, I repeat the whole announcement cycle — it never gets shorter" |
@@ -65,7 +65,7 @@ CampusSport is a lightweight, push-based sports coordination tool for KIU studen
 | Sprint | Dates | Theme | Key Deliverable | Checkpoint |
 |--------|-------|-------|-----------------|-----------|
 | Sprint 1 | Apr 24 to May 7 | Foundation | A user can sign up, browse matches, join a game, and see confirmation — end to end in a deployed app | Midterm Apr 30 — dev continues async |
-| Sprint 2 | May 8 to May 21 | Instrumentation | Organiser can create and update matches; participants receive push notifications; NSM is live in PostHog | Checkpoint 3 May 21 |
+| Sprint 2 | May 8 to May 21 | Instrumentation | Organiser can create and update matches; participants receive push notifications; NSM is measurable from the Django admin | Checkpoint 3 May 21 |
 | Sprint 3 | May 22 to Jun 4 | Growth | Quorum visibility live, share/invite working, match management complete, growth experiment results in | Peer Assessment Jun 4 |
 | Sprint 4 | Jun 5 to Jun 11 | Demo | Pitch-ready product with complete repo, venture packet, and live demo rehearsed | Demo Day Jun 11 |
 
@@ -117,8 +117,8 @@ Capacity is calculated as: available hours ÷ 3.5 hours per story point (include
 ## Sprint 2: Instrumentation
 
 **Dates:** May 8 to May 21 2026  
-**Sprint Goal:** An organiser can create a match and push a change notification to all participants; the NSM (`match_joined` per active user per week) is live and measurable in PostHog.  
-**Demo:** Organiser creates a match → participant receives push notification → participant joins → PostHog dashboard shows `match_joined` event firing. All live.  
+**Sprint Goal:** An organiser can create a match and push a change notification to all participants; the NSM (`match_joined` per active user per week) is live and measurable from the Django admin.  
+**Demo:** Organiser creates a match → participant receives push notification → participant joins → the join appears as a new RSVP in the Django admin. All live.  
 **Checkpoint 3 due:** May 21 at 23:59
 
 ### Capacity
@@ -132,7 +132,7 @@ Theoretical max: ~20 pts (4 members × 18 hrs ÷ 3.5 hrs/pt — no midterm in Sp
 |----------|----------------|--------|----------|---------|
 | S2-01 | As an organiser, I want to create a match with sport, time, location, and player limit | 3 | Davit | Claude Code |
 | S2-02 | As a participant, I want to receive a push notification when a joined match changes | 5 | Mariam T. | Google AI Studio |
-| S2-03 | As a registered user, I want core actions tracked in PostHog so the NSM is measurable | 2 | Levan | Claude Code |
+| S2-03 | As a registered user, I want core actions recorded in our own database so the NSM is measurable from the Django admin | 2 | Levan | Claude Code |
 | S2-04 | As a user, I want to leave a match I previously joined | 2 | Mariam P. | Claude Code |
 | **Sprint 2 Total** | | **12** | | |
 
@@ -141,7 +141,7 @@ Theoretical max: ~20 pts (4 members × 18 hrs ÷ 3.5 hrs/pt — no midterm in Sp
 | Risk | Likelihood | Impact | Mitigation |
 |------|-----------|--------|-----------|
 | Push notification service (web push or FCM) has complex setup | H | H | Spike in Week 1 of Sprint 2 — if web push is infeasible, fall back to email notifications for Checkpoint 3 |
-| PostHog event schema does not match live app events | M | M | Use the committed event-schema.md as spec; Levan cross-references every event name before instrumentation |
+| Usage metrics in the admin don't match the event-schema spec | M | M | Use the committed event-schema.md as the spec for what we count; Levan cross-references every metric name against the DB models |
 
 ---
 
@@ -215,7 +215,7 @@ Theoretical max: ~13 pts (4 members × 12 hrs ÷ 3.5 hrs/pt — 1-week sprint, D
 | S1-04 | Join match + confirmation | 1 | 2 | Interview #03, #04 |
 | S2-01 | Organiser creates match | 2 | 3 | Interview #05 |
 | S2-02 | Push notification on match change | 2 | 5 | Interview #01, #06 |
-| S2-03 | PostHog event instrumentation | 2 | 2 | NSM requirement |
+| S2-03 | Usage tracking via Django admin | 2 | 2 | NSM requirement |
 | S2-04 | Leave match / cancel RSVP | 2 | 2 | Interview #08 |
 | S3-01 | Quorum visibility on match cards | 3 | 3 | Interview #08, #04 |
 | S3-02 | Organiser cancel match + auto-notify | 3 | 3 | Interview #05 |
@@ -237,7 +237,7 @@ Theoretical max: ~13 pts (4 members × 12 hrs ÷ 3.5 hrs/pt — 1-week sprint, D
 |-----------|------|--------------------------------------|
 | Checkpoint 2 | Wed 22 Apr | Prototype testable (Stitch link live), event schema committed, roadmap submitted |
 | Sprint 1 Review | Week 10 (May 7) | Core user flow working end to end — signup, browse, join, confirm — in deployed Vercel app |
-| Checkpoint 3 | Thu 21 May | MVP functional with organiser flow and push notifications, PostHog analytics live, financial model complete |
+| Checkpoint 3 | Thu 21 May | MVP functional with organiser flow and push notifications, usage measurable from the Django admin, financial model complete |
 | Sprint 3 Review | Week 14 (Jun 4) | Quorum, cancellation, share/invite working; growth experiment results documented |
 | Demo Day | Thu 11 Jun | 7-minute pitch, 5-minute live demo, Q&A ready |
 

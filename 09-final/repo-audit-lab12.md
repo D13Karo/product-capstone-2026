@@ -82,7 +82,7 @@
 | Can a new user sign up without special credentials? | ⚠️ Verify — KIU email domain gate may block external evaluators. Consider creating one demo account with credentials in presenter notes |
 | Does the core user flow work end to end right now? | ⚠️ Verify by signing up + creating a match + joining it |
 | When did you last successfully deploy? | TBD — check most recent deploy on Cloudflare Pages dashboard |
-| Is your analytics dashboard collecting data? | ⚠️ Verify PostHog `match_joined` event is firing on real user actions |
+| Is your analytics dashboard collecting data? | ⚠️ Verify the Django admin shows real signups/joins (see `04-gtm/traction/usage-log.md`) — we track usage there, not PostHog |
 | Current active user count from analytics | TBD — pull this number before pitch (see Slide 6 of `pitch-deck-content.md`) |
 
 **Critical action before Demo Day:** create a **demo account** (e.g. `demo_evaluator@kiu.edu.ge`) and seed it with one upcoming match, so judges can sign in and try the product without needing a real KIU email. Document credentials in presenter notes only (do NOT commit them to the repo).
@@ -125,7 +125,7 @@ Copy-Item 04-gtm\growth-projection.xlsx 04-gtm\financials\12-month-model.xlsx
 
 ## Sprint 2 (8 May – 21 May 2026)
 - Story S2-01: Organiser creates match (3 pts) — shipped
-- Owns PostHog event instrumentation review
+- Owns usage-tracking review (Django admin over our own database)
 
 ## Sprint 3 (22 May – 4 Jun 2026)
 - Story S3-01: Quorum visibility on match cards (3 pts) — shipped

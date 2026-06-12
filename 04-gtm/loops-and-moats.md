@@ -53,7 +53,7 @@ K = invitations sent per user × conversion rate of invitations
 
 **Invitations per user (i):** 0.3
 
-Source: Estimated from product mechanics. Of our 10 interviews, 3 explicitly said they would tell a specific friend about a good match opportunity. Interview #06 (Nata) "I screenshot announcements to have them offline" — this user would likely share a match link instead once the app exists. Conservative estimate: 0.3 informal link shares per activated user per month. This will be directly measurable in Sprint 3 via PostHog `match_invite_sent` event tracking.
+Source: Estimated from product mechanics. Of our 10 interviews, 3 explicitly said they would tell a specific friend about a good match opportunity. Interview #06 (Nata) "I screenshot announcements to have them offline" — this user would likely share a match link instead once the app exists. Conservative estimate: 0.3 informal link shares per activated user per month. This will be directly measurable in Sprint 3 by counting share/invite actions recorded in our own database (read via the Django admin).
 
 **Conversion rate of invitations (c):** 45%
 
@@ -77,7 +77,7 @@ With in-product "Invite friend" on the confirmation screen, invitations per user
 
 Our current **K = 0.135** means the loop reduces our effective blended CAC by approximately 13.5%. If blended CAC is $0.64, effective CAC with loop becomes $0.64 / (1 + 0.135) = $0.56. Useful but not transformational at this K level.
 
-Our Sprint 3 target **K = 0.225** reduces effective CAC by 22.5%. Still sub-1, meaning we cannot rely on the loop to drive standalone growth — paid and organic channel investment remains essential. However, as the match network grows denser (more matches, more players already on the platform), the social pressure to join increases and K may trend upward naturally. We will measure actual K in Sprint 3 by comparing `match_invite_sent` events to subsequent `user_signup_completed` events attributed to those invite links.
+Our Sprint 3 target **K = 0.225** reduces effective CAC by 22.5%. Still sub-1, meaning we cannot rely on the loop to drive standalone growth — paid and organic channel investment remains essential. However, as the match network grows denser (more matches, more players already on the platform), the social pressure to join increases and K may trend upward naturally. We will measure actual K in Sprint 3 by comparing share/invite actions to subsequent signups attributed to those invite links — both counted from our own database via the Django admin.
 
 ---
 

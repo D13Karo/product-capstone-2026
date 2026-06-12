@@ -214,7 +214,7 @@ Then my RSVP is recorded in the database, the spots remaining decrements by 1, a
 AC2:
 Given I tap Join Match and the RSVP is confirmed,
 When the confirmation screen renders,
-Then the match_joined PostHog event fires with the properties: match_id, sport_type, spots_remaining_after_join, and time_to_match_hours.
+Then the match_joined action is recorded as an RSVP row in our own database with: match_id, sport_type, spots_remaining_after_join, and time_to_match_hours.
 
 AC3:
 Given I am on the confirmation screen,
@@ -227,7 +227,7 @@ When the error occurs,
 Then I see an inline error message "This match just filled up — try another one" and am not shown a false confirmation screen.
 ```
 
-**Notes:** This story depends on S1-01 (auth) and S1-03 (detail screen) being merged first. Levan should pull S1-04 only after S1-03 is In Review. The `match_joined` event is defined in `03-build/analytics/event-schema.md` — use that spec exactly.
+**Notes:** This story depends on S1-01 (auth) and S1-03 (detail screen) being merged first. Levan should pull S1-04 only after S1-03 is In Review. The `match_joined` action and the data we record for it are defined in `03-build/analytics/event-schema.md` — use that spec exactly.
 
 ---
 
@@ -253,7 +253,7 @@ At Sprint Review (May 7, Google Meet), the team will demo:
 2. Home screen shows at least 2 real match cards with live data
 3. User taps a match card, sees full detail, taps Join Match
 4. Confirmation screen appears with correct match details
-5. PostHog dashboard (or console log) shows `match_joined` event firing
+5. The Django admin (or a DB query) shows the new `match_joined` RSVP row
 
 The demo must be live in the deployed Vercel app. No localhost. No screenshots. No pre-recorded video. Product Owner (Davit) accepts or rejects each story against its AC during the review.
 

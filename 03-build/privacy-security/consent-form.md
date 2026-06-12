@@ -16,7 +16,7 @@ This document describes how CampusSport obtains, records, and allows withdrawal 
 Specifically:
 - Terms of Service acceptance (contract lawful basis, not "consent" in the GDPR sense) is implemented on the signup screen.
 - Marketing-email consent is **not yet implemented** — we do not currently send marketing emails, so the absence of consent UI matches the absence of the underlying processing. If we add a marketing email channel, the consent UI must ship in the same release.
-- PostHog analytics currently operate under legitimate interest with disclosure in the privacy notice. Explicit opt-in consent UI is scoped for Sprint 4 (5–11 June 2026).
+- Usage analytics is **first-party**: we review usage in the Django admin over our own database and do not send data to any third-party analytics tool (we trialled PostHog but removed it). Internal review under legitimate interest does not require a consent UI.
 - Push notifications use the OS-level system prompt (handled by `expo-notifications`) — this is industry-standard and meets the "specific, unambiguous, withdrawable" bar at the OS level.
 
 ---
@@ -32,11 +32,11 @@ Not all data processing requires consent. CampusSport's processing breaks down a
 | Posting matches as an organiser | Contract | No |
 | Sending you push notifications about matches you joined | Contract (this is the core service) — plus OS-level permission prompt | OS-level consent only (handled by `expo-notifications`) |
 | Sending transactional email (signup verification, password reset) | Contract (necessary to authenticate you) | No |
-| PostHog product analytics on event schema | Legitimate interest (currently) | **Planned: opt-in consent UI in Sprint 4** |
+| Internal usage review via Django admin (our own database) | Legitimate interest | No — no third-party analytics; data never leaves our backend |
 | Marketing emails ("here's a tournament you might like") | Consent (required by GDPR + ePrivacy) | Not yet built — and not yet needed because we send no marketing email |
-| Sharing data with third-party processors (Railway, Vercel, PostHog, SendGrid, Expo Push) | Same basis as the underlying processing — disclosed in privacy notice §3 | No separate consent required when basis is contract or legitimate interest |
+| Sharing data with third-party processors (Railway, Vercel, SendGrid, Expo Push) | Same basis as the underlying processing — disclosed in privacy notice §3 | No separate consent required when basis is contract or legitimate interest |
 
-**Summary:** at MVP scale, CampusSport processes data under contract and legitimate interest. There is one consent gap — the opt-in for PostHog analytics — which is a known item, not a hidden one. We choose to disclose this honestly rather than pretend it does not exist.
+**Summary:** at MVP scale, CampusSport processes data under contract and legitimate interest. Usage analytics is first-party (reviewed in our own Django admin), so there is no third-party-analytics consent requirement. The only consent moments are the OS-level push-notification prompt and Terms acceptance at signup.
 
 ---
 
@@ -86,31 +86,9 @@ Not all data processing requires consent. CampusSport's processing breaks down a
 - [x] Denial does not prevent any other product functionality. The user can browse and join matches; they just will not get push notifications about changes.
 - [x] Withdrawal is OS-level (Settings → Notifications → CampusSport) and as easy as granting was.
 
-### 2.3 PostHog analytics consent — **not yet implemented (gap)**
+### 2.3 Usage analytics — no consent moment required
 
-**Planned location:** On first authenticated home-screen load, an inline banner above the match list:
-
-```
-+------------------------------------------------------------+
-| Help us improve CampusSport                                |
-|                                                            |
-| We use PostHog (a self-hostable analytics tool) to         |
-| understand which features matter most. Events are tied     |
-| to an anonymous ID, never your email or name. See          |
-| [Privacy Notice §2.2] for the full list.                   |
-|                                                            |
-|  [  Allow analytics  ]   [  No thanks  ]                   |
-+------------------------------------------------------------+
-```
-
-**Key requirements that the gap closure must satisfy:**
-
-- [ ] Neither button is the default — both are visually equal weight.
-- [ ] Declining ("No thanks") disables PostHog event firing for that account; signup, login, and all core flows continue to work.
-- [ ] Declined accounts have their choice recorded so the banner does not reappear.
-- [ ] A user can change their mind in Settings → Privacy at any time, with one tap.
-
-**Owner:** Davit Karoiani. **Target:** Sprint 4 (5 to 11 June 2026).
+We review product usage (signups, matches, joins, sessions) directly in the **Django admin over our own database**. No usage data is sent to a third-party analytics processor — we trialled PostHog but removed it. Because this is first-party processing under legitimate interest, and users are identified only by a system-generated ID (never email or name), there is no separate analytics-consent moment in the onboarding flow. Users retain the right to object to legitimate-interest processing under the privacy notice (§5, Right to object), after which we exclude their records from internal usage review.
 
 ---
 
@@ -132,13 +110,11 @@ Not all data processing requires consent. CampusSport's processing breaks down a
 **UI element:** OS-native prompt via `expo-notifications.requestPermissionsAsync()`.
 **What happens if the user declines:** Account works normally; match list, joining, leaving, and viewing all function. The user simply does not receive push notifications when a match they joined changes — they will see updates only when they open the app.
 
-### Category 3: PostHog product analytics (**planned, Sprint 4**)
+### Category 3: Usage analytics (first-party — no consent required)
 
 **Purpose:** Understand which features users engage with so we can improve the product.
-**Is it optional?** Yes.
-**Default state:** Unchecked / off until the user actively grants consent via the inline banner described in §2.3.
-**UI element:** Inline banner on first authenticated home screen, plus a toggle in Settings → Privacy that is always available.
-**What happens if the user declines:** PostHog event firing is disabled for that user. The product continues to work fully. We lose the ability to measure their funnel, but that is the user's right.
+**Mechanism:** Reviewed in the Django admin over our own database; no third-party analytics tool is used.
+**Consent required?** No — first-party processing under legitimate interest, with users identified only by a system-generated ID. Users may object under the privacy notice (§5, Right to object), and we would exclude their records from internal review.
 
 ### Category 4: Marketing communications
 
@@ -159,10 +135,8 @@ Consent must be as easy to withdraw as it was to give. Status per category:
 **Withdrawal:** OS Settings → Notifications → CampusSport → toggle off. Two taps. Same number of taps as granting.
 **Server side:** When a push attempt fails because the OS revoked permission, the backend marks the token invalid within 24 hours.
 
-### PostHog analytics (planned for Sprint 4)
-**Withdrawal:** Settings → Privacy → Analytics toggle. One tap to off.
-**Steps:** Two screens, one tap. Same as the inline banner that granted it.
-**What happens to data already collected?** Events already sent to PostHog remain there subject to PostHog's 12-month rolling retention. No new events will be sent for that user. A user can additionally email karoiani.davit@gmail.com to request deletion of their PostHog events under the right to erasure.
+### Usage analytics (first-party)
+**Withdrawal:** Because usage is reviewed in our own admin (no third-party analytics), a user exercises control via the **Right to object** (privacy notice §5) by emailing karoiani.davit@gmail.com. We then exclude their records from internal usage review and can delete their usage records under the Right to erasure. All usage data stays in our own database throughout.
 
 ---
 
@@ -176,7 +150,6 @@ You must be able to prove consent was given, when, to what version of the privac
 |---------|--------------|--------|-------|
 | ToS acceptance at signup | `users` table (PostgreSQL) — `created_at` timestamp implies acceptance at that moment | `users.created_at`, `users.privacy_notice_version` (gap — column does not yet exist) | Partial — the timestamp proves the user reached the Create Account button on a date when v1.0 of the privacy notice was live, but the explicit `privacy_notice_version` column is a gap |
 | Push notification permission | Stored client-side by the OS; server records only the resulting Expo push token | `users.expo_push_token`, `users.expo_push_token_updated_at` | Implemented |
-| PostHog analytics opt-in | **Not yet implemented** | Planned: `users.consent` JSONB column (see schema below) | Gap |
 
 ### Planned consent record schema (Sprint 4)
 
@@ -185,12 +158,6 @@ To be added to the `users` table in PostgreSQL:
 ```
 consent: JSONB
 {
-  "analytics_posthog": {
-    "given": true,
-    "timestamp": "2026-06-08T14:23:45Z",
-    "privacy_notice_version": "1.0",
-    "method": "inline_banner_home_screen"
-  },
   "tos_v1": {
     "given": true,
     "timestamp": "2026-05-12T09:01:22Z",
@@ -214,12 +181,10 @@ Listed in priority order. An empty table here would mean either full compliance 
 
 | # | Gap | Owner | Target completion date |
 |---|-----|-------|-----------------------|
-| 1 | PostHog analytics opt-in UI not yet built — currently operating under legitimate interest with notice. Compliant under GDPR but a stronger consent posture is desired before public marketing launch. | Davit Karoiani | End of Sprint 4 (11 June 2026) |
-| 2 | `users.consent` JSONB column and migration not yet shipped | Davit Karoiani | End of Sprint 4 (11 June 2026) |
-| 3 | `users.privacy_notice_version` column not yet shipped — cannot prove which version of the notice a user agreed to | Davit Karoiani | End of Sprint 4 (11 June 2026) |
-| 4 | Self-service account deletion in product (currently email-only via §5 of privacy notice) | Mariam Tskhomelidze | Post-Demo Day, Summer 2026 |
-| 5 | Self-service data export in product (currently email-only) | Mariam Tskhomelidze | Post-Demo Day, Summer 2026 |
-| 6 | Cross-border data transfer disclosure for PostHog Cloud tenant region — needs to be confirmed (EU vs US) and either documented in §3 of privacy notice or PostHog tenant moved to EU | Mariam Pirtskhalava | End of Sprint 4 |
-| 7 | No automated test that a user who declined analytics never has events fired — needs a Jest/Detox test | Levan Kovziridze | End of Sprint 4 |
+| 1 | `users.consent` / `users.privacy_notice_version` column not yet shipped — cannot yet prove which version of the notice a user agreed to at signup | Davit Karoiani | End of Sprint 4 (11 June 2026) |
+| 2 | Self-service account deletion in product (currently email-only via §5 of privacy notice) | Mariam Tskhomelidze | Post-Demo Day, Summer 2026 |
+| 3 | Self-service data export in product (currently email-only) | Mariam Tskhomelidze | Post-Demo Day, Summer 2026 |
 
-All gaps are tracked in the team repo as GitHub issues with the `lab-10-compliance` label and reviewed at every standup until closed.
+**Resolved / no longer applicable:** the previous gaps about a third-party-analytics opt-in UI, a PostHog cross-border transfer disclosure, and an analytics opt-out test no longer apply — we removed PostHog and use no third-party analytics processor. Usage is reviewed first-party in the Django admin (see `04-gtm/traction/usage-log.md`).
+
+All remaining gaps are tracked in the team repo as GitHub issues with the `lab-10-compliance` label and reviewed at every standup until closed.

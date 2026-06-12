@@ -83,7 +83,7 @@ Flows deliberately not in scope today (acknowledged): password reset (lower traf
 
 ## Flow 3: `match_joined` — RSVP to a match
 
-**Description:** Authenticated user taps Join on a match card. Frontend calls `POST /matches/<id>/join` with JWT in `Authorization` header. Backend verifies the match is in the same university as the user, that spots remain, creates the RSVP row, increments quorum count, and fires the PostHog `match_joined` event.
+**Description:** Authenticated user taps Join on a match card. Frontend calls `POST /matches/<id>/join` with JWT in `Authorization` header. Backend verifies the match is in the same university as the user, that spots remain, creates the RSVP row, increments the quorum count, and persists the join in our own database (later counted in our Django-admin usage review — see `04-gtm/traction/usage-log.md`).
 
 | STRIDE category | Threat identified | Mitigation in place | Status |
 |----------------|-------------------|---------------------|--------|
@@ -91,7 +91,7 @@ Flows deliberately not in scope today (acknowledged): password reset (lower traf
 | Spoofing | Authenticated user from University A joins a University B match by guessing match IDs | Backend serializer filters matches by the authenticated user's `university_domain` before resolving the match ID. Cross-university join returns 404. | Mitigated — requires test coverage (action item: add test, owner Levan) |
 | Tampering | RSVP request body tampered to claim a spot for someone else | The endpoint takes no `user_id` from the body — the user is derived from the JWT. Body tampering has no effect. | Mitigated by design |
 | Tampering | Match `max_players` tampered to bypass spot limit | Backend re-reads `max_players` from the database and checks `current_count < max_players` server-side, independent of client input. | Mitigated |
-| Repudiation | User joins a match and later denies it ("I never said I would come") | RSVP row has user_id, match_id, timestamp. `match_joined` PostHog event is independently logged with same identifiers. Two audit trails. | Mitigated |
+| Repudiation | User joins a match and later denies it ("I never said I would come") | RSVP row has user_id, match_id, and timestamp, persisted server-side in our own database and visible in the Django admin. This is the authoritative audit record. | Mitigated |
 | Information Disclosure | Other players' identities exposed in match roster | Roster returns display_name only — never email. Verified in `MatchSerializer` (action item: add explicit serializer test). | Mitigated — needs test coverage |
 | Denial of Service | Attacker scripts hundreds of join/leave cycles to flood notifications and exhaust DB writes | Currently no rate limit on `POST /matches/<id>/join` or `DELETE /matches/<id>/rsvp`. | **NOT MITIGATED — action item:** rate-limit join/leave to 10/min per user. Owner: Levan. Target: Sprint 4. |
 | Elevation of Privilege | RSVP grants the user organiser-level capabilities on the match | Server enforces that only `match.creator` can edit/cancel. RSVP does not change `match.creator`. | Mitigated |
@@ -100,14 +100,14 @@ Flows deliberately not in scope today (acknowledged): password reset (lower traf
 
 ## Flow 4: `match_created` — organiser posts a new match
 
-**Description:** Authenticated user submits the create-match form (sport, time, location, max_players). Backend creates the match record with `creator = request.user`, makes it visible only to users with the same `university_domain`, and fires `match_created` in PostHog.
+**Description:** Authenticated user submits the create-match form (sport, time, location, max_players). Backend creates the match record with `creator = request.user`, makes it visible only to users with the same `university_domain`. The new match is persisted in our database and counted in our Django-admin usage review.
 
 | STRIDE category | Threat identified | Mitigation in place | Status |
 |----------------|-------------------|---------------------|--------|
 | Spoofing | Attacker creates matches as another organiser | `creator` set from JWT-derived user. Body cannot override. | Mitigated |
 | Tampering | Match `university_domain` set to a different university to spam other campuses | `university_domain` is read from the authenticated user's profile server-side; not accepted from the request body. | Mitigated |
 | Tampering | Past-date matches created to manipulate analytics | Server-side validation rejects start_time more than 5 minutes in the past. | Mitigated — verify the validator exists (action item: add unit test) |
-| Repudiation | Organiser cancels a match and denies they created it | `match.creator` foreign key + `match.created_at` timestamp + corresponding `match_created` PostHog event. | Mitigated |
+| Repudiation | Organiser cancels a match and denies they created it | `match.creator` foreign key + `match.created_at` timestamp, persisted server-side in our own database (visible in the Django admin). | Mitigated |
 | Information Disclosure | Match content (location, time) visible to non-KIU users | The list endpoint filters by authenticated user's `university_domain`. Unauthenticated requests are rejected by `IsAuthenticated` permission. | Mitigated |
 | Denial of Service | Attacker creates 10,000 matches to flood every player's feed and notification queue | No rate limit on `POST /matches`. A single compromised KIU account could spam the entire university. | **NOT MITIGATED — accepted risk + action item:** at MVP scale (audience ~ one university, account count low) exposure is low. Action item: rate-limit match creation to 20/day per user. Owner: Levan. Target: Sprint 4. |
 | Elevation of Privilege | A regular participant gains organiser capabilities by exploiting the create endpoint | There is no separate "organiser" role — any authenticated KIU user can create a match. This is intentional product design (any student can post a pickup game). | Not a threat by design |
@@ -236,7 +236,7 @@ git log -p --all | grep -iE "(api_key|secret|password|token)"
 - [ ] `.env.example` exists in the repo with placeholder values only — **GAP**: confirm `.env.example` exists; if not, create it.
 - [x] No `.env` file has ever been committed (verified by secrets check above)
 
-**Action item:** if `.env.example` is missing, create one in both `backend/` and `frontend/` with placeholder keys: `DJANGO_SECRET_KEY=`, `DATABASE_URL=`, `SENDGRID_API_KEY=`, `REDIS_URL=`, `EXPO_PUBLIC_POSTHOG_KEY=`, `EXPO_PUBLIC_API_BASE_URL=`. Owner: Davit. Target: 24 hours.
+**Action item:** if `.env.example` is missing, create one in both `backend/` and `frontend/` with placeholder keys: `DJANGO_SECRET_KEY=`, `DATABASE_URL=`, `SENDGRID_API_KEY=`, `REDIS_URL=`, `EXPO_PUBLIC_API_BASE_URL=`. Owner: Davit. Target: 24 hours.
 
 ---
 

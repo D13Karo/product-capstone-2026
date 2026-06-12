@@ -34,17 +34,17 @@ Every row below describes data CampusSport actually collects, verified against t
 
 **Lawful basis options used:** Contract (processing necessary to provide the service the user signed up for), Legitimate interest (improving the product through analytics), Consent (currently not used — see Section 11 gap note).
 
-### 2.2 Usage and Behavioural Data
+### 2.2 Usage Data
 
-All event names come from `03-build/analytics/event-schema.md` v1.0. No event in our schema captures email, name, or any other PII (verified by Davit on 09 April 2026 and re-verified on 12 December 2025).
+We keep usage records to understand whether the product works (signups, matches created, joins, sessions). **These records live in our own PostgreSQL database and are reviewed by the team through the Django admin interface (see `04-gtm/traction/usage-log.md`). We do not send this data to any third-party analytics processor.** No usage record captures email, name, or any other PII — users are identified only by a system-generated ID.
 
-| Data category | Specific fields | Why we collect it | Lawful basis | Third-party processor |
-|---------------|----------------|-------------------|--------------|----------------------|
-| Acquisition events | `user_signup_completed` (signup_method, onboarding_time_seconds) | To measure signup funnel performance | Legitimate interest | PostHog Cloud |
-| Activation events | `match_joined` (match_id, sport_type, spots_remaining_after_join, time_to_match_hours) | This is our North Star Metric — it tells us whether the product actually works | Legitimate interest | PostHog Cloud |
-| Retention events | `match_created`, `user_session_started` (device_type, app_open_source), `match_result_logged`, `match_left` | To measure organiser supply, session frequency, and RSVP cancellation rates | Legitimate interest | PostHog Cloud |
-| Referral events | `match_invite_sent` (match_id, share_method) | To measure whether share links drive new signups | Legitimate interest | PostHog Cloud |
-| Universal event properties | `user_id` (system-generated UUID — never email), `timestamp` (ISO 8601 UTC), `session_id` (UUID), `platform` (`web` / `ios` / `android`) | Attached to every event for attribution and debugging | Legitimate interest | PostHog Cloud |
+| Data category | What we record | Why we collect it | Lawful basis | Where stored / who can access |
+|---------------|----------------|-------------------|--------------|-------------------------------|
+| Acquisition | Signup count and method per user | To measure signup performance | Legitimate interest | Our own backend (PostgreSQL); read by the team via Django admin |
+| Activation | Match joins / RSVPs per user — our North Star Metric (does the product actually deliver value?) | To measure whether users get value | Legitimate interest | Our own backend (PostgreSQL); read via Django admin |
+| Retention | Matches created, sessions, results logged, joins cancelled | To measure organiser supply, session frequency, and cancellation rates | Legitimate interest | Our own backend (PostgreSQL); read via Django admin |
+| Referral | Share / invite actions (match_id, share method) | To measure whether share links drive new signups | Legitimate interest | Our own backend (PostgreSQL); read via Django admin |
+| User identifiers | System-generated `user_id` (never email), timestamps, platform | Attached to records for attribution and debugging | Legitimate interest | Our own backend (PostgreSQL) |
 | Server logs | HTTP method, request path, response status code, timestamp, client IP address (last 30 days) | To diagnose errors and abuse | Legitimate interest | Railway/Render hosting platform |
 
 ### 2.3 Location Data
@@ -75,7 +75,6 @@ Every service below receives some category of personal data. List verified again
 |-----------|-------------|-------------------|---------------------|
 | Railway or Render (backend host — final choice locked at deployment) | Application hosting + managed PostgreSQL | All stored user data, server logs, request IPs | railway.app/legal/privacy or render.com/privacy |
 | Vercel or Netlify (frontend host — final choice locked at deployment) | Static site hosting + edge CDN | IP addresses in HTTP request logs (≤30 days) | vercel.com/legal/privacy-policy or netlify.com/privacy |
-| PostHog Cloud | Product analytics | All events listed in §2.2, attached to system-generated `user_id` only — no email or name | posthog.com/privacy |
 | Expo Push Service (operated by Expo, a unit of 650 Industries, on Google Cloud) | Push notification relay | Expo push token + notification payload (match title, time, venue) | expo.dev/privacy |
 | Apple Push Notification Service (APNs) | Native iOS push delivery (only when an iOS native build is shipped) | Device token, notification payload | apple.com/legal/privacy |
 | Firebase Cloud Messaging (FCM) | Native Android push delivery (only when an Android native build is shipped) | Device token, notification payload | firebase.google.com/support/privacy |
@@ -83,7 +82,7 @@ Every service below receives some category of personal data. List verified again
 | Redis (managed instance on Railway or Render) | Channels backplane for real-time updates | Session/channel identifiers; no message content persisted beyond seconds | redis.com/legal/privacy-policy or hosting provider's policy |
 | GitHub | Source code hosting (no production user data) | None in production — listed for completeness because our deployment pipeline runs from GitHub | github.com/site/privacy |
 
-We do not currently use Google Analytics, Mixpanel, Amplitude, Sentry, or any social-login provider (Google Sign-In / Facebook Login). If any is added later, this table must be updated before the change is deployed.
+**We do not use any third-party product-analytics processor.** We trialled PostHog early in development but removed it; usage is now reviewed in the Django admin over our own database (see §2.2 and `04-gtm/traction/usage-log.md`). We also do not use Google Analytics, Mixpanel, Amplitude, Sentry, or any social-login provider (Google Sign-In / Facebook Login). If any is added later, this table must be updated before the change is deployed.
 
 ---
 
@@ -95,7 +94,7 @@ We do not currently use Google Analytics, Mixpanel, Amplitude, Sentry, or any so
 | Push notification token | Removed within 24 hours of user logging out on that device, or on account deletion | Logout, account deletion, or token invalidation by Expo/FCM/APNs |
 | Match RSVPs | Until the user deletes their account, or 12 months after the match end time — whichever comes first | Scheduled job on the backend |
 | Match records and results | 12 months after match end time (kept short-term for season-end review) | Scheduled job |
-| Event analytics in PostHog | 12 months rolling (PostHog Cloud default for our project) | Automatic; PostHog handles deletion |
+| Usage records in our own database | 12 months rolling | Scheduled job on the backend |
 | Server logs (Railway/Render) | 30 days rolling | Automatic; hosting platform default |
 | Email verification / password reset codes | Single-use; invalidated within 15 minutes of issue or on use | Automatic, server-side TTL |
 | Consent record (once implemented — see §11) | Life of account + 24 months | Scheduled job after account deletion + 24 months |
@@ -111,7 +110,7 @@ Under GDPR, you have the following rights. For each right, we describe how to ex
 | Right to access | Request a copy of all personal data we hold about you | Email karoiani.davit@gmail.com with subject `Data Access Request` | Within 30 days |
 | Right to erasure | Request deletion of your personal data and account | Email karoiani.davit@gmail.com with subject `Erasure Request` | Within 30 days |
 | Right to rectification | Request correction of inaccurate data | Email karoiani.davit@gmail.com with subject `Rectification Request` | Within 30 days |
-| Right to restriction | Request we stop processing your data in specific ways (e.g. exclude you from PostHog analytics) | Email karoiani.davit@gmail.com with subject `Processing Restriction` | Within 30 days |
+| Right to restriction | Request we stop processing your data in specific ways (e.g. exclude your usage records from our internal analytics review) | Email karoiani.davit@gmail.com with subject `Processing Restriction` | Within 30 days |
 | Right to portability | Request your data in a machine-readable format (JSON export of your profile, RSVPs, and created matches) | Email karoiani.davit@gmail.com with subject `Data Portability Request` | Within 30 days |
 | Right to object | Object to processing based on legitimate interest (analytics, server logs beyond what is contract-necessary) | Email karoiani.davit@gmail.com with subject `Processing Objection` | Within 30 days |
 
@@ -146,7 +145,6 @@ CampusSport's frontend is a React Native Expo app. We do not use HTTP cookies in
 | Expo `AsyncStorage` — theme preference (light/dark) | Remember your dark/light mode preference | Until app uninstall or manual reset | Yes — change in Settings |
 | Expo push token (per-device) | Receive push notifications | Until logout on that device, or token revocation | Yes — disable notifications in OS-level app settings |
 | Vercel/Netlify edge cache cookie (host-set) | CDN cache routing | Session | Standard CDN behaviour, not used for tracking |
-| PostHog session ID (set in `AsyncStorage` by `posthog-react-native`) | Group events into a session for analytics | 30 minutes of inactivity | Yes once consent UI ships — see §11 |
 
 We do not use Google Analytics cookies, advertising cookies, or any cross-site tracking technologies.
 
@@ -187,9 +185,9 @@ These were identified during the Lab 10 audit on 12 December 2025 and are tracke
 
 | Gap | Owner | Target |
 |-----|-------|--------|
-| In-product consent UI for PostHog analytics does not yet exist — analytics currently run under legitimate interest with notice in this document; explicit consent is a stronger position before public launch | Davit | Sprint 4 (5–11 Jun 2026 — Demo Day prep window) |
+| In-product analytics-consent UI — **Resolved/no longer applicable:** we removed PostHog and use no third-party analytics processor, so no analytics-consent UI is required. Usage is reviewed in our own Django admin under legitimate interest. | — | Closed |
 | Self-service rights dashboard (export, delete) — currently email-only | Mariam T. | Post-Demo Day (Summer 2026) |
-| Cross-border processor disclosure (PostHog stores in US/EU depending on tenant — needs to be confirmed and documented) | Mariam P. | Sprint 4 |
+| Cross-border analytics-processor disclosure — **Resolved/no longer applicable:** no third-party analytics processor is used; usage data stays in our own backend. | — | Closed |
 | Sub-processor list for SendGrid and Expo Push not yet enumerated to second tier | Levan | Post-Demo Day |
 
 ---

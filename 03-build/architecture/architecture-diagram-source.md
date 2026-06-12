@@ -27,7 +27,7 @@ This diagram shows how a KIU student signs up, browses matches, and joins one ac
 | Authentication provider | Yes | Supabase Auth |
 | Backend / server logic | Yes | Next.js server actions |
 | Database | Yes | Supabase Postgres |
-| Analytics / event tracking | Yes | PostHog Cloud |
+| Usage tracking | Yes | Our own DB, read via Django admin (PostHog trialled, dropped) |
 | External APIs or services | Yes | Supabase managed Postgres is the external service |
 | AI touchpoints | Yes | Annotated as build-workflow only — no runtime AI |
 
@@ -63,7 +63,7 @@ flowchart TD
 
     AUTH["🔐 Supabase Auth\n(email + password\nsession JWT)"]
 
-    ANALYTICS["📊 PostHog Cloud\n(event tracking)"]
+    ANALYTICS["📊 Usage data\n(our own DB, read via Django admin)"]
 
     AI_NOTE["🤖 AI tools: build workflow only\nStitch → UI scaffolds\nClaude Code → server action logic\nAI Studio → auth prototype\nNo runtime AI in product"]
 
@@ -126,17 +126,17 @@ flowchart TD
 | User record read/write | reads / writes | Auth server action | users table |
 | Session returned | returns session token | Auth server action | Signup/Login Screen |
 | Auth success redirect | redirects on success | Signup/Login Screen | Match List Screen |
-| Signup event | emits user_signup_completed | Signup/Login Screen | PostHog |
+| Signup record | records user_signup_completed | Signup/Login Screen | Our own DB |
 | Match list request | requests match list | Match List Screen | Fetch matches server action |
 | Match read | reads upcoming matches | Fetch matches server action | matches table |
 | Match cards returned | returns match cards | Fetch matches server action | Match List Screen |
-| Session event | emits user_session_started | Match List Screen | PostHog |
+| Session record | records user_session_started | Match List Screen | Our own DB |
 | Match card tap | taps match card | Match List Screen | Match Detail Screen |
 | Join tap | taps Join Match | Match Detail Screen | Join match server action |
 | RSVP validation read | checks spots_remaining > 0 + no existing RSVP | Join server action | matches table |
 | RSVP write | writes RSVP row, decrements spots_remaining | Join server action | rsvps table |
 | RSVP confirmed | confirms RSVP | Join server action | Confirmation Screen |
-| Activation event | emits match_joined | Join server action | PostHog |
+| Activation record | records match_joined (RSVP) | Join server action | Our own DB |
 | Back to matches | taps Back to matches | Confirmation Screen | Match List Screen |
 
 ---

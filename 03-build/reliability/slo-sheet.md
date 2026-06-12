@@ -47,16 +47,16 @@ The error-budget arithmetic backing these SLOs lives in `error-budget.md`.
 ### SLO 2: `match_joined` activation success rate
 
 **SLI definition:**
-- Metric: Percentage of `POST /matches/<id>/join` requests that complete with a 2xx response and result in a `match_joined` PostHog event firing within the same session.
-- Formula: `(POST /join 2xx responses with subsequent match_joined event) / (total POST /join attempts) × 100`
-- Measured by: PostHog funnel — `POST /matches/<id>/join attempted` → `match_joined`. The `attempted` event is added on the client right before the network call; the `match_joined` event fires on server confirmation.
+- Metric: Percentage of `POST /matches/<id>/join` requests that complete with a 2xx response and result in a persisted RSVP row within the same session.
+- Formula: `(POST /join 2xx responses with a persisted RSVP) / (total POST /join attempts) × 100`
+- Measured by: comparing join attempts (a client-side `attempted` counter logged right before the network call) to successful RSVP rows recorded in our own database — read via the Django admin or a SQL count (`select count(*) from matches_rsvp …`).
 - Measurement frequency: Calculated daily from event data; reviewed weekly in standup.
 - Current measured value: **not yet measured at production scale** — pre-launch smoke testing shows >99% on a single-user happy path.
 
 **SLO target:**
 - Target: **98% activation success rate**
 - Time window: Rolling 30 days
-- Why this target is achievable: The activation flow is one POST endpoint, one DB write, one PostHog event. Failure modes are network drop, backend 5xx, or DB constraint (spot taken between client view and click). The "spot taken" race condition is a legitimate failure that contributes to the 2% budget; we do not need to push it to 0%. 100% would mean no error budget, which is a lie (see §Anti-pattern note below).
+- Why this target is achievable: The activation flow is one POST endpoint and one DB write. Failure modes are network drop, backend 5xx, or DB constraint (spot taken between client view and click). The "spot taken" race condition is a legitimate failure that contributes to the 2% budget; we do not need to push it to 0%. 100% would mean no error budget, which is a lie (see §Anti-pattern note below).
 
 **Error budget:** 864 minutes per 30-day window. Full arithmetic in `error-budget.md` §SLO 2.
 
@@ -188,9 +188,9 @@ Even as a four-person student team, we assign an on-call week per person. This d
 |---|--------|-------|--------|
 | 1 | Add `GET /healthz` endpoint to Django backend returning 200 with DB connection check | Davit Karoiani | Sprint 4 |
 | 2 | Set up UptimeRobot 5-minute probe against `/healthz` and against the frontend URL | Levan Kovziridze | Sprint 4 |
-| 3 | Add the `attempted` PostHog event right before the `POST /join` network call so the funnel denominator is measurable | Davit Karoiani | Sprint 4 |
+| 3 | Add a client-side `attempted` counter (logged right before the `POST /join` call) so the activation-rate denominator is measurable alongside the persisted RSVP count read from the Django admin | Davit Karoiani | Sprint 4 |
 | 4 | Create `push_metrics` table and instrument start/end timestamps in the fan-out worker | Mariam Tskhomelidze | Sprint 4 |
-| 5 | Spin up the error-budget dashboard (lightweight Looker Studio over PostHog export, or a manual weekly review note in `error-budget.md`) | Mariam Tskhomelidze | Sprint 4 |
+| 5 | Spin up the error-budget dashboard (a manual weekly review note in `error-budget.md` based on counts read from the Django admin) | Mariam Tskhomelidze | Sprint 4 |
 | 6 | Confirm the on-call rotation start date with all team members | Mariam Tskhomelidze | This week |
 
 ---

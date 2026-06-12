@@ -24,7 +24,7 @@ As a student, this is my feed. Only matches from my university — no spam, no c
 
 Now watch the organizer side. Say the weather changed and I move the game from six to seven PM. I change one field, I save. And without me doing anything else, without reposting anywhere — every player who joined just got a notification with the new time. That's the whole product. The change reached everyone the moment it happened.
 
-And every action you just saw is tracked in PostHog, which is how we measure whether people are getting value. Mariam will tell you why now is the moment for this.
+And every action you just saw is recorded in our own database, which we read through the Django admin — that's how we measure whether people are getting value. Mariam will tell you why now is the moment for this.
 
 ---
 

@@ -46,7 +46,7 @@ Full evidence trail: `01-discovery/interview-logs/`, `01-discovery/synthesis/fin
 | Sprint | Dates | Theme | Key output |
 |---|---|---|---|
 | Sprint 1 | 24 Apr – 7 May | Foundation | End-to-end user flow deployed: KIU email signup, match list, match detail, one-tap Join. Vercel/Cloudflare deployment live by 7 May. |
-| Sprint 2 | 8 May – 21 May | Instrumentation | Organizer match creation, push notifications via Expo Push Service, PostHog event schema live around the NSM (`match_joined`). |
+| Sprint 2 | 8 May – 21 May | Instrumentation | Organizer match creation, push notifications via Expo Push Service, usage tracking around the NSM (`match_joined`) read from the Django admin. |
 | Sprint 3 | 22 May – 4 Jun | Growth | Quorum visibility on match list, share/invite, organizer cancel-with-auto-notify, match result logging, sport filter. |
 | Sprint 4 | 5 Jun – 11 Jun | Demo prep | Pitch, one-pager, video, repo audit. |
 
@@ -68,7 +68,7 @@ In parallel with build:
 |---|---|
 | Live product at https://unisport-412.pages.dev | ✅ Deployed and reachable |
 | 10 validated customer interviews | ✅ Documented in `01-discovery/interview-logs/` |
-| North Star Metric live in PostHog | ✅ `match_joined` per active user per week |
+| North Star Metric measurable from the Django admin | ✅ `match_joined` (joins) per active user per week |
 | Smoke test results | ✅ Carrd + Google Form, May 13–21 |
 | GDPR-aligned privacy notice | ✅ `08-legal/privacy-notice.md` |
 | STRIDE security tabletop | ✅ `03-build/privacy-security/security-tabletop.md` |
@@ -85,7 +85,7 @@ In parallel with build:
 The roadmap after Demo Day, drawn from existing repo documents:
 
 **Track A — close the moat evidence gap (`06-strategy/moat-statement.md`):**
-Organizer 4-week retention cohort from PostHog by 8 July. Organizer history-depth SQL by 8 July. Re-interview 3 of the original 10 interviewees by 15 July. If retention > 25%, Switching Costs is confirmed as primary. If < 25%, fallback to Counter-Positioning is named in the same document.
+Organizer 4-week retention cohort from the Django admin / a SQL query by 8 July. Organizer history-depth SQL by 8 July. Re-interview 3 of the original 10 interviewees by 15 July. If retention > 25%, Switching Costs is confirmed as primary. If < 25%, fallback to Counter-Positioning is named in the same document.
 
 **Track B — convert the KIU institutional relationship (`06-strategy/ecosystem-map.md`):**
 KIU Sports & Wellness Office pilot for autumn 2026 — first action: introduction email by 17 June.
@@ -97,27 +97,31 @@ Identify named sports coordinators at Free Uni, ISU, TSU by 15 July. Convert one
 
 ## What we learned the hard way
 
-*[Team to fill in — each member adds one or two bullet points in their own words. Things that surprised you, decisions you'd defend, moments where the data forced a change. 5–10 minutes as a team.]*
+*[Draft — edit in your own words. These are grounded in what actually happened; make them yours before Demo Day.]*
 
--
--
--
+- **The first idea was wrong, and interviews killed it fast.** Our Week-1 hypothesis was unreliable LMS notifications. Three interviews in, nobody cared about the LMS — they cared about missing pickup games. We learned to let evidence kill an idea early instead of defending it for weeks.
+- **The organiser is the whole product, not the players.** Every workaround our interviewees built failed at the same point: the organiser wouldn't move (Cotne's working Telegram bot, I-10). Once we designed for the one person who posts the match, the rest of the product fell into place.
+- **Simpler beat impressive on analytics.** We set up PostHog, then realised we were maintaining an event pipeline we didn't need — reading our own Django admin gave us every number at our scale. Cutting it was the right call and a cleaner privacy story.
+- **Small real numbers beat big fake ones.** ~18 signups felt embarrassing to put on a slide, but it's verifiable in our own admin — and that's exactly what the rubric (and a real investor) rewards.
 
 ---
 
 ## What we'd do differently
 
-*[Team to fill in — each member adds one bullet point in their own words. Things you would change about the process if you started over. 5 minutes as a team.]*
+*[Draft — edit in your own words.]*
 
--
--
--
+- **Seed both sides before launching.** We brought on players faster than organisers, so early feeds looked empty. Next time we'd line up ~5 organisers first, then open the doors to players.
+- **Pick the analytics approach once, on day one.** We churned between PostHog and the Django admin and paid for the rework. We'd choose the admin from the start and spend the time on the product.
+- **Lock the product name immediately.** We shipped as UniSport but wrote half the academic docs as CampusSport, which created avoidable cleanup.
+- **Instrument the activation metric earlier.** If we'd tracked joins-per-user from Sprint 1, we'd have a real retention curve at Demo Day instead of just totals.
 
 ---
 
 ## Final reflection
 
-*[Team to write — one short paragraph from the team. Not a press release, not a polish piece. What does it actually feel like to be at Demo Day with this product? What's the one thing you want a judge reading this case study to walk away with?]*
+*[Draft — make it the team's own voice before Demo Day.]*
+
+Standing at Demo Day, the thing we're proudest of isn't the size of the numbers — it's that they're real. A handful of actual KIU students signed up to a product we deployed, used it to join real matches, and we can show every one of those numbers live in our own admin. We started the semester with the wrong idea and let the interviews drag us to the right one. The one thing we want a judge to walk away with: we found a genuinely validated pain, built the simplest thing that solves it, and we never inflated a single figure to make it look better than it is.
 
 ---
 

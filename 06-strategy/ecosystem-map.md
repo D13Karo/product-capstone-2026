@@ -35,7 +35,6 @@ Organizations that give us access, distribution, data, or credibility. Status is
 | KIU Student Council | Distribution to student population via official channels, social media reach across all student cohorts | Identified | Mariam Pirtskhalava drafts a partnership proposal by 24 June offering anonymized aggregate match data in exchange for one post per month in the council's social channels |
 | Free University, ISU, TSU sports coordinators (one named contact per university to be identified by Sprint 5) | Replicate the KIU playbook on three more campuses, expanding total addressable market 4× | Identified | After Demo Day (post-11 June), Davit identifies one named sports coordinator per university by 15 July via LinkedIn and KIU alumni network |
 | Expo (the company behind expo-notifications) | Push notification infrastructure already in production use | Confirmed (commercial relationship — free tier) | Continue free-tier usage through MVP; evaluate paid tier when monthly active devices exceed 1,000 (~Sprint 8 estimated) |
-| PostHog | Product analytics, self-hostable for stronger privacy posture if needed | Confirmed (commercial relationship — free tier under 1M events/month) | Continue free tier; revisit if event volume approaches limit |
 | SendGrid (Twilio) | Transactional email for signup verification and password reset | Confirmed (commercial relationship — free tier) | Move to paid tier before public marketing launch beyond KIU |
 
 **Relationship status definitions:**
